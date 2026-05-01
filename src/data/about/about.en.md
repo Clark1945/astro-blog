@@ -1,35 +1,13 @@
 ---
-title: "About"
+title: "About me"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+Hello, I am Clark Liu. I love to try new things and passionate to challenge myself. I live in Taiwan, Hsinchu City. For discovering more possibility of my future, I decided to leave my hometown. I currently do not know how far can I go, but let's just let fate decide.
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
+My daily hobby is developing my own side project, and utilize the generative AI to create many useful and interesting stuff. My principal is "I'm not sure how many people like my stuff, but at least I have to like my project."
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+I like Japan culture, include music, games, novel, doujin stuff.
 
-<div>
-  <img src="/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
+My current life target is "pursuing the ideal shape of life to myself". Of course, I do not own the answer currently.
 
-## Tech Stack
-
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
-
-## Features
-
-Here are certain features of this site.
-
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+What's your ideal life? perhaps can you share with me.
