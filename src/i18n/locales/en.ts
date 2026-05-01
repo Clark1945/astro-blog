@@ -1,22 +1,21 @@
 import type { I18nStrings } from "@/i18n/types";
 
 const baseStrings = {
-  "site.title": "AstroPaper I18n",
-  "site.desc": "A fork of AstroPaper theme with support for I18n",
+  "site.title": "Clark Liu Blog",
+  "site.desc": "Clark Liu Blog with multi-language support",
 };
 
 const ENLocale: I18nStrings = {
   ...baseStrings,
-  "hero.title": "Mingalaba",
+  "hero.title": "Hi there",
   "hero.body": `
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+Hi, I'm Clark.
+An engineer aiming to work in Japan, passionate about building tools I use in my daily life.
+Here I share my tech notes, development journey, and bits of everyday life.
 `,
-  "hero.beforeReadme": "Read the blog posts or check",
-  "hero.readme": "README",
-  "hero.afterReadme": "for more info.",
+  "hero.beforeReadme": "",
+  "hero.readme": "",
+  "hero.afterReadme": "",
   copy: "copy",
   copied: "copied",
   by: "by",
