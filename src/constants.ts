@@ -21,25 +21,25 @@ interface Social {
 export const SOCIALS: Social[] = [
   {
     name: "Github",
-    href: "https://github.com/yousef8/astro-paper-i18n",
+    href: "https://github.com/Clark1945",
     linkTitle: (t: Translator) => t("socials.github"),
     icon: IconGitHub,
   },
-  {
-    name: "X",
-    href: "https://x.com/username",
-    linkTitle: (t: Translator) => t("socials.x"),
-    icon: IconBrandX,
-  },
+  // {
+  //   name: "X",
+  //   href: "https://x.com/username",
+  //   linkTitle: (t: Translator) => t("socials.x"),
+  //   icon: IconBrandX,
+  // },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/username/",
+    href: "https://www.linkedin.com/in/clark-liu-b48740253/",
     linkTitle: (t: Translator) => t("socials.linkedin"),
     icon: IconLinkedin,
   },
   {
     name: "Mail",
-    href: "mailto:yourmail@gmail.com",
+    href: "mailto:clark163@gmail.com",
     linkTitle: (t: Translator) => t("socials.mail"),
     icon: IconMail,
   },
