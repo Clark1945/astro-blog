@@ -1,0 +1,80 @@
+---
+export interface Props {
+  locale?: string;
+}
+
+const { locale = "en" } = Astro.props;
+
+const localeToGiscusLang: Record<string, string> = {
+  en: "en",
+  zh: "zh-CN",
+  ja: "ja",
+};
+
+const giscusLang = localeToGiscusLang[locale] ?? "en";
+---
+
+<div class="giscus-wrapper mt-10" data-giscus-lang={giscusLang}></div>
+
+<script is:inline data-astro-rerun>
+  function getGiscusTheme() {
+    return document.documentElement.classList.contains("dark")
+      ? "dark_dimmed"
+      : "light";
+  }
+
+  function initGiscus() {
+    const wrapper = document.querySelector(".giscus-wrapper");
+    if (!wrapper) return;
+
+    const lang = wrapper.dataset.giscusLang || "en";
+
+    // 清除舊的 giscus 避免重複
+    const old = wrapper.querySelector("script#giscus-script");
+    if (old) old.remove();
+    const oldFrame = wrapper.querySelector(".giscus");
+    if (oldFrame) oldFrame.remove();
+
+    const script = document.createElement("script");
+    script.id = "giscus-script";
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", "Clark1945/astro-blog");
+    script.setAttribute("data-repo-id", "R_kgDOSQfrjA");
+    script.setAttribute("data-category", "Announcements");
+    script.setAttribute("data-category-id", "DIC_kwDOSQfrjM4C8l5Z");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "bottom");
+    script.setAttribute("data-theme", getGiscusTheme());
+    script.setAttribute("data-lang", lang);
+    script.setAttribute("crossorigin", "anonymous");
+    script.async = true;
+
+    wrapper.appendChild(script);
+  }
+
+  function syncGiscusTheme() {
+    const theme = getGiscusTheme();
+    const iframe = document.querySelector("iframe.giscus-frame");
+    if (iframe) {
+      iframe.contentWindow?.postMessage(
+        { giscus: { setConfig: { theme } } },
+        "https://giscus.app"
+      );
+    }
+  }
+
+  initGiscus();
+
+  // Astro View Transitions 切換頁面後重新初始化
+  document.addEventListener("astro:after-swap", initGiscus);
+
+  // 監聽 dark/light mode 切換，同步更新 giscus 主題
+  const themeObserver = new MutationObserver(() => syncGiscusTheme());
+  themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+</script>
