@@ -100,6 +100,14 @@ const isActive = (path: string) => {
               {t("about")}
             </a>
           </li>
+          <li class="col-span-3">
+            <a
+              href="/chitchat/"
+              class:list={{ "active-nav": isActive("/chitchat") }}
+            >
+              雜談
+            </a>
+          </li>
           {
             SITE.showArchives && (
               <li class="col-span-3">

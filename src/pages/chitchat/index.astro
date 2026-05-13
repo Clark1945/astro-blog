@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Main from "@/layouts/Main.astro";
+import Datetime from "@/components/Datetime.astro";
+import { SITE } from "@/config";
+
+const allPosts = await getCollection("chitchat", ({ data }) => {
+  return import.meta.env.DEV || !data.draft;
+});
+
+const sortedPosts = allPosts.sort(
+  (a, b) =>
+    new Date(b.data.pubDatetime).getTime() -
+    new Date(a.data.pubDatetime).getTime()
+);
+---
+
+<Layout title={`雜談 | ${SITE.author}`} description="隨意聊聊，不成文章">
+  <Header />
+  <Main pageTitle="雜談" pageDesc="隨意聊聊，不成文章">
+    <ul>
+      {
+        sortedPosts.map(post => (
+          <li class="my-6">
+            <a
+              href={`/chitchat/${post.id}/`}
+              class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline"
+            >
+              <h2
+                style={{ viewTransitionName: `chitchat-${post.id}` }}
+                class="text-lg font-medium decoration-dashed hover:underline"
+              >
+                {post.data.title}
+              </h2>
+            </a>
+            <Datetime
+              pubDatetime={post.data.pubDatetime}
+              modDatetime={post.data.modDatetime}
+              timezone={undefined}
+            />
+            <p class="mt-1">{post.data.description}</p>
+            {post.data.tags.length > 0 && (
+              <ul class="mt-2 flex flex-wrap gap-1">
+                {post.data.tags.map(tag => (
+                  <li class="inline-block rounded bg-muted px-2 py-0.5 text-sm text-foreground/70">
+                    #{tag}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

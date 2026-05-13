@@ -3,6 +3,7 @@ import { glob } from "astro/loaders";
 import { SITE } from "@/config";
 
 export const BLOG_PATH = "src/data/blog";
+export const CHITCHAT_PATH = "src/data/chitchat";
 
 const blog = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: `./${BLOG_PATH}` }),
@@ -23,6 +24,19 @@ const blog = defineCollection({
     }),
 });
 
+const chitchat = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: `./${CHITCHAT_PATH}` }),
+  schema: z.object({
+    author: z.string().default(SITE.author),
+    pubDatetime: z.date(),
+    modDatetime: z.date().optional().nullable(),
+    title: z.string(),
+    draft: z.boolean().optional(),
+    tags: z.array(z.string()).default([]),
+    description: z.string(),
+  }),
+});
+
 const about = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/data/about" }),
   schema: z.object({
@@ -31,4 +45,4 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { blog, about };
+export const collections = { blog, about, chitchat };
