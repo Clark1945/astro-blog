@@ -10,7 +10,7 @@ const ENLocale: I18nStrings = {
   "hero.title": "Hi there",
   "hero.body": `
 Hi, I'm Clark.
-An engineer aiming to work in Japan, passionate about building tools I use in my daily life.
+An engineer with multiple skills, passionate about building tools I use in my daily life.
 Here I share my tech notes, development journey, and bits of everyday life.
 `,
   "hero.beforeReadme": "",

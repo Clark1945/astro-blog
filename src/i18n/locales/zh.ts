@@ -10,7 +10,7 @@ const CNLocale: I18nStrings = {
   "hero.title": "你好",
   "hero.body": `
 你好，我是 Clark。
-想去日本工作的工程師，喜歡開發自己日常會使用到的工具。
+技能樹點歪的工程師，喜歡開發自己日常會使用到的工具。
 這裡記錄我的技術筆記、開發日常、以及生活點滴等等。
 `,
   "hero.beforeReadme": "",
