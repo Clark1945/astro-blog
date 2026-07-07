@@ -21,6 +21,11 @@ html[data-theme="dark"] {
 }
 
 @theme inline {
+  /* 英文與程式碼維持等寬字型,中文自動 fallback 到系統中文字型 */
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", "Microsoft JhengHei", "微軟正黑體", "PingFang TC",
+    "Noto Sans TC", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
