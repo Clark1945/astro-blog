@@ -9,7 +9,10 @@ import BackToTopButton from "@/components/BackToTopButton.astro";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n/config";
+import { getRelativeLocalePath, translateFor } from "@/i18n/utils";
 
+// 雜談只有繁體中文一種內容，各語系共用同一份，僅介面文字跟著語系走
 export async function getStaticPaths() {
   const allPosts = await getCollection("chitchat", ({ data }) => !data.draft);
 
@@ -19,23 +22,33 @@ export async function getStaticPaths() {
       new Date(a.data.pubDatetime).getTime()
   );
 
-  return sortedPosts.map((post, index) => ({
-    params: { slug: post.id },
-    props: {
-      post,
-      prevPost: index > 0 ? sortedPosts[index - 1] : null,
-      nextPost: index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null,
-    },
-  }));
+  return SUPPORTED_LOCALES.flatMap(locale =>
+    sortedPosts.map((post, index) => ({
+      params: {
+        locale: locale === DEFAULT_LOCALE ? undefined : locale,
+        slug: post.id,
+      },
+      props: {
+        post,
+        prevPost: index > 0 ? sortedPosts[index - 1] : null,
+        nextPost:
+          index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null,
+      },
+    }))
+  );
 }
 
 const { post, prevPost, nextPost } = Astro.props;
 const { title, description, pubDatetime, modDatetime, tags } = post.data;
 const { Content } = await render(post);
+
+const currentLocale = Astro.currentLocale;
+
+const t = translateFor(currentLocale);
 ---
 
 <Layout
-  title={`${title} | 雜談`}
+  title={`${title} | ${t("chitchat")}`}
   description={description}
   pubDatetime={pubDatetime}
   modDatetime={modDatetime}
@@ -50,8 +63,8 @@ const { Content } = await render(post);
       { "mt-8": !SITE.showBackButton },
     ]}
     data-pagefind-body
-    data-copy-string="複製"
-    data-copied-string="已複製"
+    data-copy-string={t("copy")}
+    data-copied-string={t("copied")}
   >
     <h1
       transition:name={`chitchat-${post.id}`}
@@ -93,12 +106,15 @@ const { Content } = await render(post);
       {
         prevPost && (
           <a
-            href={`/chitchat/${prevPost.id}/`}
+            href={getRelativeLocalePath(
+              currentLocale,
+              `/chitchat/${prevPost.id}/`
+            )}
             class="flex w-full gap-1 hover:opacity-75"
           >
             <IconChevronLeft class="inline-block flex-none" />
             <div>
-              <span>上一篇</span>
+              <span>{t("navigation.prevPost")}</span>
               <div class="text-sm text-accent/85">{prevPost.data.title}</div>
             </div>
           </a>
@@ -107,11 +123,14 @@ const { Content } = await render(post);
       {
         nextPost && (
           <a
-            href={`/chitchat/${nextPost.id}/`}
+            href={getRelativeLocalePath(
+              currentLocale,
+              `/chitchat/${nextPost.id}/`
+            )}
             class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"
           >
             <div>
-              <span>下一篇</span>
+              <span>{t("navigation.nextPost")}</span>
               <div class="text-sm text-accent/85">{nextPost.data.title}</div>
             </div>
             <IconChevronRight class="inline-block flex-none" />

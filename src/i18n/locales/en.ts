@@ -35,6 +35,13 @@ Here I share my tech notes, development journey, and bits of everyday life.
   tableOfContents: "Table of contents",
   "tableOfContents.desc": "Open Table of contents",
   allPosts: "All Posts",
+  tech: "Tech",
+  "tech.desc": "Technical articles on backend, databases and the web.",
+  learning: "Learning",
+  "learning.desc":
+    "Study notes on coding practice, books and new technologies.",
+  chitchat: "Life",
+  "chitchat.desc": "Casual notes on life and thinking (written in Chinese).",
   search: "Search",
   "search.desc": "Search any article",
   "search.placeholder": "Search for anything",

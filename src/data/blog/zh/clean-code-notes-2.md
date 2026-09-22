@@ -1,6 +1,7 @@
 ---
 author: Clark Liu
 title: Clean Code 筆記 (2)
+category: learning
 description: 繼續上回的 Clean Code 筆記，涵蓋 TDD、Class Level 設計原則、以及 System 層面的相依注入與抽象工廠。
 pubDatetime: 2024-12-29T00:00:00Z
 tags:

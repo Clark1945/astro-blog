@@ -1,6 +1,7 @@
 ---
 author: Clark Liu
 title: 自分のドメインを買うメリットって何？
+category: tech
 description: 迷わず買おう、それだけ。
 pubDatetime: 2026-04-30T09:30:00Z
 tags:

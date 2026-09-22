@@ -1,6 +1,7 @@
 ---
 author: Clark Liu
 title: "React 入門(1)：環境構築、JSX、そして最初のコンポーネント"
+category: learning
 description: Node.js のインストールから Vite でのプロジェクト作成、JSX とコンポーネントの理解、そして Greeting と UserCard コンポーネントを実際に作ってみる。
 pubDatetime: 2026-06-10T00:00:00Z
 tags:

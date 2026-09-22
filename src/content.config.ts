@@ -5,6 +5,10 @@ import { SITE } from "@/config";
 export const BLOG_PATH = "src/data/blog";
 export const CHITCHAT_PATH = "src/data/chitchat";
 
+// 文章主題分類：入口、首頁、上下篇、RSS 都依此欄位分流
+export const CATEGORIES = ["tech", "learning"] as const;
+export type Category = (typeof CATEGORIES)[number];
+
 const blog = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: `./${BLOG_PATH}` }),
   schema: ({ image }) =>
@@ -13,6 +17,7 @@ const blog = defineCollection({
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
+      category: z.enum(CATEGORIES),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).default(["others"]),
