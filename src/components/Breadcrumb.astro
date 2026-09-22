@@ -1,5 +1,6 @@
 ---
 import type { I18nStrings } from "@/i18n/types";
+import { CATEGORIES, type Category } from "@/content.config";
 import {
   getLocaleInfo,
   getRelativeLocalePath,
@@ -34,6 +35,19 @@ const breadcrumbListUrls = [...breadcrumbList];
 
 if (breadcrumbList[0] !== "posts")
   breadcrumbList[0] = t(breadcrumbList[0] as keyof I18nStrings);
+
+// if breadcrumb is Home > Tech > 2 <etc>
+// replace Tech > 2 with Tech (page number)
+if (
+  CATEGORIES.includes(breadcrumbListUrls[0] as Category) &&
+  breadcrumbList[1]
+) {
+  breadcrumbList.splice(
+    0,
+    2,
+    `${breadcrumbList[0]} (${t("pageWithNo", { no: parseInt(breadcrumbList[1] || "1").toLocaleString(LOCALE.langTag) })})`
+  );
+}
 
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)

@@ -41,6 +41,7 @@ const {
   timezone,
   tags,
   hideEditPost,
+  category,
 } = post.data;
 
 const { Content } = await render(post);
@@ -112,6 +113,12 @@ const nextPost =
       {title}
     </h1>
     <div class="flex items-center gap-4">
+      <a
+        href={getRelativeLocalePath(Astro.currentLocale, `/${category}/`)}
+        class="rounded bg-muted px-2 py-0.5 text-sm text-foreground/70 hover:text-accent"
+      >
+        {t(category)}
+      </a>
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" class="my-2" />
       <EditPost class="max-sm:hidden" {hideEditPost} {post} />
     </div>

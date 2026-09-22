@@ -25,6 +25,13 @@ export interface I18nStrings {
   tableOfContents: string;
   "tableOfContents.desc": string;
   allPosts: string;
+  tech: string;
+  "tech.desc": string;
+  learning: string;
+  "learning.desc": string;
+  // 生活區塊即雜談專欄，網址維持 /chitchat/
+  chitchat: string;
+  "chitchat.desc": string;
   search: string;
   "search.desc": string;
   "search.placeholder": string;

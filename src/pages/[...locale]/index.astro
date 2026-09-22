@@ -12,6 +12,7 @@ import { SOCIALS } from "@/constants";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n/config";
 import { getRelativeLocalePath, translateFor } from "@/i18n/utils";
 import Layout from "@/layouts/Layout.astro";
+import getPostsByCategory from "@/utils/getPostsByCategory";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { getPostsByLocale } from "@/utils/posts";
 import type { GetStaticPaths } from "astro";
@@ -26,7 +27,8 @@ const { locale = DEFAULT_LOCALE } = Astro.params;
 const posts = await getPostsByLocale(locale);
 const t = translateFor(Astro.currentLocale);
 
-const sortedPosts = getSortedPosts(posts);
+// 首頁只推技術文章，其他主題從各自的入口進入
+const sortedPosts = getSortedPosts(getPostsByCategory(posts, "tech"));
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
@@ -44,7 +46,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </h1>
       <a
         target="_blank"
-        href={getRelativeLocalePath(Astro.currentLocale, "/rss.xml")}
+        href={getRelativeLocalePath(Astro.currentLocale, "/tech/rss.xml")}
         class="inline-block"
         aria-label={t("a11y.rssFeed")}
         title={t("rssFeed")}
@@ -119,7 +121,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     }
 
     <div class="my-8 text-center">
-      <LinkButton href="/posts/">
+      <LinkButton href="/tech/">
         {t("allPosts")}{" "}
         <IconArrowRight class="inline-block rtl:rotate-180" />
       </LinkButton>

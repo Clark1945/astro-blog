@@ -1,6 +1,7 @@
 ---
 author: Clark Liu
 title: 買一個domain給自己有甚麼好處？
+category: tech
 description: 買就對了，不要懷疑
 pubDatetime: 2026-04-30T09:30:00Z
 tags:

@@ -1,6 +1,7 @@
 ---
 author: Clark Liu
 title: Clean Code 筆記 (1)
+category: learning
 description: Clean Code 的原則包含了多種面向，透過 Clean Code 的學習，可以使你全方位的檢視自己撰寫與他人撰寫的程式碼是否足夠整潔。
 pubDatetime: 2024-12-26T00:00:00Z
 tags:

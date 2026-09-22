@@ -1,6 +1,7 @@
 ---
 author: Clark Liu
 title: Why Should You Buy Your Own Domain?
+category: tech
 description: Just buy it, no second thoughts needed.
 pubDatetime: 2026-04-30T09:30:00Z
 tags:

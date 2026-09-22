@@ -5,7 +5,19 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Main from "@/layouts/Main.astro";
 import Datetime from "@/components/Datetime.astro";
-import { SITE } from "@/config";
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n/config";
+import { getRelativeLocalePath, translateFor } from "@/i18n/utils";
+
+// 雜談只有繁體中文一種內容，各語系共用同一份，僅介面文字跟著語系走
+export const getStaticPaths = async () => {
+  return SUPPORTED_LOCALES.map(locale => ({
+    params: { locale: locale === DEFAULT_LOCALE ? undefined : locale },
+  }));
+};
+
+const currentLocale = Astro.currentLocale;
+
+const t = translateFor(currentLocale);
 
 const allPosts = await getCollection("chitchat", ({ data }) => {
   return import.meta.env.DEV || !data.draft;
@@ -18,15 +30,21 @@ const sortedPosts = allPosts.sort(
 );
 ---
 
-<Layout title={`雜談 | ${SITE.author}`} description="隨意聊聊，不成文章">
+<Layout
+  title={`${t("chitchat")} | ${t("site.title")}`}
+  description={t("chitchat.desc")}
+>
   <Header />
-  <Main pageTitle="雜談" pageDesc="隨意聊聊，不成文章">
+  <Main pageTitle={t("chitchat")} pageDesc={t("chitchat.desc")}>
     <ul>
       {
         sortedPosts.map(post => (
           <li class="my-6">
             <a
-              href={`/chitchat/${post.id}/`}
+              href={getRelativeLocalePath(
+                currentLocale,
+                `/chitchat/${post.id}/`
+              )}
               class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline"
             >
               <h2

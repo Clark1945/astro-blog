@@ -1,6 +1,7 @@
 ---
 author: Clark Liu
 title: "Getting Started with React (1): Setup, JSX, and Your First Component"
+category: learning
 description: Install Node.js, scaffold a project with Vite, understand JSX and components, then build a Greeting and a UserCard component from scratch.
 pubDatetime: 2026-06-10T00:00:00Z
 tags:
