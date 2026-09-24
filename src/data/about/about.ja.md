@@ -11,3 +11,8 @@ title: "私について"
 現在の人生の目標は”自分の理想のライフの形を追求する”です。当然、答えはまだ見つからないですが。
 
 あなたにとっての理想の生活って何ですか？？良かったら教えてください。
+
+Facebook: https://www.facebook.com/profile.php?id=100089820994977
+Medium: https://medium.com/@ziegler7359
+Youtube: https://www.youtube.com/@ashenNumberFour
+Linkedin: https://www.linkedin.com/in/clark-liu-b48740253

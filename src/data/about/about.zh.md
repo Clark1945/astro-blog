@@ -9,3 +9,8 @@ title: "關於"
 當前的人生目標暫定為「追尋自己理想的生活型態」──當然，目前還沒有明確的結論。
 
 你所認為的「理想的生活型態」又是什麼呢？歡迎與我聊聊。
+
+Facebook: https://www.facebook.com/profile.php?id=100089820994977
+Medium: https://medium.com/@ziegler7359
+Youtube: https://www.youtube.com/@ashenNumberFour
+Linkedin: https://www.linkedin.com/in/clark-liu-b48740253

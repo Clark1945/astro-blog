@@ -11,3 +11,8 @@ I like Japan culture, include music, games, novel, doujin stuff.
 My current life target is "pursuing the ideal shape of life to myself". Of course, I do not own the answer currently.
 
 What's your ideal life? perhaps can you share with me.
+
+Facebook: https://www.facebook.com/profile.php?id=100089820994977
+Medium: https://medium.com/@ziegler7359
+Youtube: https://www.youtube.com/@ashenNumberFour
+Linkedin: https://www.linkedin.com/in/clark-liu-b48740253

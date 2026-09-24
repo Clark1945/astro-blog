@@ -10,10 +10,17 @@ import IconEye from "@/assets/icons/IconEye.svg";
 export interface Props {
   viewKey: string;
   label?: string;
+  /** 文章列表卡片用：只讀不累加，避免光是出現在列表就被算一次瀏覽 */
+  readOnly?: boolean;
   class?: string;
 }
 
-const { viewKey, label = "Views", class: className } = Astro.props;
+const {
+  viewKey,
+  label = "Views",
+  readOnly = false,
+  class: className,
+} = Astro.props;
 ---
 
 <span
@@ -22,6 +29,7 @@ const { viewKey, label = "Views", class: className } = Astro.props;
     className,
   ]}
   data-view-key={viewKey}
+  data-read-only={readOnly ? "1" : undefined}
 >
   <IconEye class="inline-block size-4" />
   <span class="view-count">···</span>
@@ -37,12 +45,13 @@ const { viewKey, label = "Views", class: className } = Astro.props;
       const countEl = el.querySelector<HTMLElement>(".view-count");
       if (!key || !countEl) continue;
 
+      const readOnly = el.dataset.readOnly === "1";
       const sessionKey = `viewed:${key}`;
       const alreadyViewed = sessionStorage.getItem(sessionKey);
 
       try {
         const res = await fetch(`/api/views/${encodeURIComponent(key)}`, {
-          method: alreadyViewed ? "GET" : "POST",
+          method: readOnly || alreadyViewed ? "GET" : "POST",
         });
         if (!res.ok) throw new Error(`unexpected status ${res.status}`);
 
@@ -50,7 +59,10 @@ const { viewKey, label = "Views", class: className } = Astro.props;
         countEl.textContent = data.views.toLocaleString();
         el.classList.remove("hidden");
 
-        if (!alreadyViewed) sessionStorage.setItem(sessionKey, "1");
+        // 列表卡片是唯讀的，不代表「看過文章」，不要標記 session，
+        // 避免之後真的點進文章時因為誤判已看過而少算一次瀏覽
+        if (!readOnly && !alreadyViewed)
+          sessionStorage.setItem(sessionKey, "1");
       } catch {
         // 開發環境或尚未設定 Cloudflare KV binding 時端點不存在，
         // 靜默隱藏，不要讓瀏覽數的失敗擋到文章本身的顯示。
