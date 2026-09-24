@@ -16,7 +16,12 @@ import { getRelativeLocalePath, translateFor } from "@/i18n/utils";
 
 // 雜談只有繁體中文一種內容，各語系共用同一份，僅介面文字跟著語系走
 export async function getStaticPaths() {
-  const allPosts = await getCollection("chitchat", ({ data }) => !data.draft);
+  // 跟列表頁（index.astro）用同一套過濾條件：dev 模式下草稿也要能產生
+  // 詳情頁，不然列表點得進去、文章頁卻 404
+  const allPosts = await getCollection(
+    "chitchat",
+    ({ data }) => import.meta.env.DEV || !data.draft
+  );
 
   const sortedPosts = allPosts.sort(
     (a, b) =>
