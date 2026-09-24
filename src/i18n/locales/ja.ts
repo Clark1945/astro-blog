@@ -41,6 +41,7 @@ const JALocale: I18nStrings = {
   "learning.desc": "問題演習、読書、新しい技術の学習ノート。",
   chitchat: "生活",
   "chitchat.desc": "生活や考えごとについての気軽な随筆（中国語で執筆）。",
+  views: "閲覧",
   search: "検索",
   "search.desc": "記事を検索する",
   "search.placeholder": "検索...",

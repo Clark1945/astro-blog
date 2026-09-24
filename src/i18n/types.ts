@@ -32,6 +32,7 @@ export interface I18nStrings {
   // 生活區塊即雜談專欄，網址維持 /chitchat/
   chitchat: string;
   "chitchat.desc": string;
+  views: string;
   search: string;
   "search.desc": string;
   "search.placeholder": string;

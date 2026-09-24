@@ -10,6 +10,7 @@ import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import Giscus from "@/components/Giscus.astro";
+import ViewCounter from "@/components/ViewCounter.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
@@ -120,6 +121,10 @@ const nextPost =
         {t(category)}
       </a>
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" class="my-2" />
+      <ViewCounter
+        viewKey={`blog:${post.id.split("/").pop()}`}
+        label={t("views")}
+      />
       <EditPost class="max-sm:hidden" {hideEditPost} {post} />
     </div>
     <article id="article" class="mx-auto prose mt-8 max-w-app">
