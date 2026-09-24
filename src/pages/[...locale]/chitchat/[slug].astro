@@ -10,6 +10,7 @@ import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import ViewCounter from "@/components/ViewCounter.astro";
 import { SITE } from "@/config";
+import { getChitchatViewKey } from "@/utils/getViewKey";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n/config";
 import { getRelativeLocalePath, translateFor } from "@/i18n/utils";
 
@@ -81,7 +82,7 @@ const t = translateFor(currentLocale);
         size="lg"
         class="my-2"
       />
-      <ViewCounter viewKey={`chitchat:${post.id}`} label={t("views")} />
+      <ViewCounter viewKey={getChitchatViewKey(post.id)} label={t("views")} />
     </div>
 
     <article id="article" class="mx-auto prose mt-8 max-w-app">
