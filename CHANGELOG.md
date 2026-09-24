@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.0](https://github.com/Clark1945/astro-blog/compare/v1.0.0...v1.1.0) (2026-09-24)
+
+
+### Features
+
+* **blog:** 新增主題分類導覽並將生活併入雜談 ([f854211](https://github.com/Clark1945/astro-blog/commit/f854211bde7279a73631655b1fdce8f7e3d920b1))
+* **blog:** 新增文章瀏覽數功能 ([1f1e4e9](https://github.com/Clark1945/astro-blog/commit/1f1e4e9ac417fffc5d3ec43a534ce4a55677dc48))
+* **blog:** 新增文章瀏覽數功能 ([e03f490](https://github.com/Clark1945/astro-blog/commit/e03f490b71810afaebc16100993adc867f5c8d69))
+
 ## 1.0.0 (2026-08-28)
 
 
