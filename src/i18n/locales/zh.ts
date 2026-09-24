@@ -41,6 +41,7 @@ const CNLocale: I18nStrings = {
   "learning.desc": "刷題、讀書與新技術的學習筆記。",
   chitchat: "生活",
   "chitchat.desc": "關於生活與思考的隨筆，隨意聊聊。",
+  views: "瀏覽",
   search: "搜尋",
   "search.desc": "搜尋任意文章",
   "search.placeholder": "搜尋內容...",

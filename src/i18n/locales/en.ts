@@ -42,6 +42,7 @@ Here I share my tech notes, development journey, and bits of everyday life.
     "Study notes on coding practice, books and new technologies.",
   chitchat: "Life",
   "chitchat.desc": "Casual notes on life and thinking (written in Chinese).",
+  views: "Views",
   search: "Search",
   "search.desc": "Search any article",
   "search.placeholder": "Search for anything",

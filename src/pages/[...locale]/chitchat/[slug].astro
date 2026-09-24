@@ -8,6 +8,7 @@ import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
+import ViewCounter from "@/components/ViewCounter.astro";
 import { SITE } from "@/config";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n/config";
 import { getRelativeLocalePath, translateFor } from "@/i18n/utils";
@@ -72,13 +73,16 @@ const t = translateFor(currentLocale);
     >
       {title}
     </h1>
-    <Datetime
-      {pubDatetime}
-      {modDatetime}
-      timezone={undefined}
-      size="lg"
-      class="my-2"
-    />
+    <div class="flex items-center gap-4">
+      <Datetime
+        {pubDatetime}
+        {modDatetime}
+        timezone={undefined}
+        size="lg"
+        class="my-2"
+      />
+      <ViewCounter viewKey={`chitchat:${post.id}`} label={t("views")} />
+    </div>
 
     <article id="article" class="mx-auto prose mt-8 max-w-app">
       <Content />

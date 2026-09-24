@@ -1,0 +1,65 @@
+---
+// 顯示單篇文章的瀏覽數，實際數字由 Cloudflare Pages Function
+// （functions/api/views/[key].js + KV）提供。
+//
+// `viewKey` 需為跨語系共用、不會重複的 key，慣例是 `{collection}:{slug}`，
+// 例如 `blog:2026-07-05`、`chitchat:2026-08-28`，讓同一篇文章的三語版本
+// 累加同一個瀏覽數，而不是各語系分開計算。
+import IconEye from "@/assets/icons/IconEye.svg";
+
+export interface Props {
+  viewKey: string;
+  label?: string;
+  class?: string;
+}
+
+const { viewKey, label = "Views", class: className } = Astro.props;
+---
+
+<span
+  class:list={[
+    "view-counter inline-flex items-center gap-1 text-foreground/70",
+    className,
+  ]}
+  data-view-key={viewKey}
+>
+  <IconEye class="inline-block size-4" />
+  <span class="view-count">···</span>
+  <span class="sr-only">{label}</span>
+</span>
+
+<script>
+  async function updateViewCounters() {
+    const counters = document.querySelectorAll<HTMLElement>(".view-counter");
+
+    for (const el of counters) {
+      const key = el.dataset.viewKey;
+      const countEl = el.querySelector<HTMLElement>(".view-count");
+      if (!key || !countEl) continue;
+
+      const sessionKey = `viewed:${key}`;
+      const alreadyViewed = sessionStorage.getItem(sessionKey);
+
+      try {
+        const res = await fetch(`/api/views/${encodeURIComponent(key)}`, {
+          method: alreadyViewed ? "GET" : "POST",
+        });
+        if (!res.ok) throw new Error(`unexpected status ${res.status}`);
+
+        const data = (await res.json()) as { views: number };
+        countEl.textContent = data.views.toLocaleString();
+        el.classList.remove("hidden");
+
+        if (!alreadyViewed) sessionStorage.setItem(sessionKey, "1");
+      } catch {
+        // 開發環境或尚未設定 Cloudflare KV binding 時端點不存在，
+        // 靜默隱藏，不要讓瀏覽數的失敗擋到文章本身的顯示。
+        el.classList.add("hidden");
+      }
+    }
+  }
+
+  // astro:page-load 在首次載入與每次 view transition 後都會觸發，
+  // 這裡不額外呼叫一次，避免跟這個監聽器搶跑造成瀏覽數重複累加。
+  document.addEventListener("astro:page-load", updateViewCounters);
+</script>
