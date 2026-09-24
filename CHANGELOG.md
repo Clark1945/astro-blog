@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Clark1945/astro-blog/compare/v1.1.0...v1.2.0) (2026-09-24)
+
+
+### Features
+
+* **blog:** 列表卡片顯示瀏覽數＋關於頁社群連結 ([0f887ef](https://github.com/Clark1945/astro-blog/commit/0f887efb8dc0b7d86704cce2470a0e3f611987b4))
+
 ## [1.1.0](https://github.com/Clark1945/astro-blog/compare/v1.0.0...v1.1.0) (2026-09-24)
 
 
