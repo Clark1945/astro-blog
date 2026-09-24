@@ -5,8 +5,10 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Main from "@/layouts/Main.astro";
 import Datetime from "@/components/Datetime.astro";
+import ViewCounter from "@/components/ViewCounter.astro";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n/config";
 import { getRelativeLocalePath, translateFor } from "@/i18n/utils";
+import { getChitchatViewKey } from "@/utils/getViewKey";
 
 // 雜談只有繁體中文一種內容，各語系共用同一份，僅介面文字跟著語系走
 export const getStaticPaths = async () => {
@@ -54,11 +56,19 @@ const sortedPosts = allPosts.sort(
                 {post.data.title}
               </h2>
             </a>
-            <Datetime
-              pubDatetime={post.data.pubDatetime}
-              modDatetime={post.data.modDatetime}
-              timezone={undefined}
-            />
+            <div class="flex items-center gap-4">
+              <Datetime
+                pubDatetime={post.data.pubDatetime}
+                modDatetime={post.data.modDatetime}
+                timezone={undefined}
+              />
+              <ViewCounter
+                viewKey={getChitchatViewKey(post.id)}
+                label={t("views")}
+                readOnly
+                class="text-sm"
+              />
+            </div>
             <p class="mt-1">{post.data.description}</p>
             {post.data.tags.length > 0 && (
               <ul class="mt-2 flex flex-wrap gap-1">
