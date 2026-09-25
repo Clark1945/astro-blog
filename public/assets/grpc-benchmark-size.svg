@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" width="920" height="460">
+  <rect x="0" y="0" width="920" height="460" rx="12" fill="#1a1a19" />
+  <text x="32" y="36" font-size="18" font-weight="700" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Payload Size: gRPC (protobuf) vs REST (JSON)</text>
+  <text x="32" y="56" font-size="13" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Lower is better</text>
+  
+    <g transform="translate(64, 66)" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+      <rect x="0" y="-9" width="14" height="14" rx="3" fill="#3987e5" />
+      <text x="20" y="3" font-size="13" fill="#c3c2b7">gRPC</text>
+      <rect x="82" y="-9" width="14" height="14" rx="3" fill="#d95926" />
+      <text x="102" y="3" font-size="13" fill="#c3c2b7">HTTP (REST)</text>
+    </g>
+  <g transform="translate(32, 108)">
+    
+    <g transform="translate(0, 0)">
+      <text x="64" y="-14" font-size="14" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Upload (client streaming)</text>
+      
+        <line x1="64" y1="260.0" x2="380" y2="260.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="264.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">0</text>
+        <line x1="64" y1="208.0" x2="380" y2="208.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="212.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">50</text>
+        <line x1="64" y1="156.0" x2="380" y2="156.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="160.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">100</text>
+        <line x1="64" y1="104.0" x2="380" y2="104.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="108.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">150</text>
+        <line x1="64" y1="52.0" x2="380" y2="52.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="56.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">200</text>
+        <line x1="64" y1="0.0" x2="380" y2="0.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="4.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">250</text>
+      <line x1="64" y1="260" x2="380" y2="260" stroke="#383835" stroke-width="1" />
+      <path d="M 74.1 260 L 74.1 259.9376 L 94.1 259.9376 L 94.1 260 Z" fill="#3987e5" /><path d="M 97.1 260 L 97.1 259.8336 L 117.1 259.8336 L 117.1 260 Z" fill="#d95926" />
+        <text x="84.1" y="253.8" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">0.06</text>
+        <text x="107.1" y="240.8" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">0.16</text>
+        <text x="95.6" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">1K</text><path d="M 137.3 260 L 137.3 259.3344 L 157.3 259.3344 L 157.3 260 Z" fill="#3987e5" /><path d="M 160.3 260 L 160.3 258.3776 L 180.3 258.3776 L 180.3 260 Z" fill="#d95926" />
+        <text x="147.3" y="252.4" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">0.64</text>
+        <text x="170.3" y="239.4" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">1.56</text>
+        <text x="158.8" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">10K</text><path d="M 200.5 260
+    L 200.5 257.3752
+    Q 200.5 253.3752 204.5 253.3752
+    L 216.5 253.3752
+    Q 220.5 253.3752 220.5 257.3752
+    L 220.5 260
+    Z" fill="#3987e5" /><path d="M 223.5 260
+    L 223.5 247.6616
+    Q 223.5 243.6616 227.5 243.6616
+    L 239.5 243.6616
+    Q 243.5 243.6616 243.5 247.6616
+    L 243.5 260
+    Z" fill="#d95926" />
+        <text x="210.5" y="237.7" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">6.37</text>
+        <text x="233.5" y="224.7" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">15.71</text>
+        <text x="222.0" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">100K</text><path d="M 263.70000000000005 260
+    L 263.70000000000005 230.876
+    Q 263.70000000000005 226.876 267.70000000000005 226.876
+    L 279.70000000000005 226.876
+    Q 283.70000000000005 226.876 283.70000000000005 230.876
+    L 283.70000000000005 260
+    Z" fill="#3987e5" /><path d="M 286.70000000000005 260
+    L 286.70000000000005 181.892
+    Q 286.70000000000005 177.892 290.70000000000005 177.892
+    L 302.70000000000005 177.892
+    Q 306.70000000000005 177.892 306.70000000000005 181.892
+    L 306.70000000000005 260
+    Z" fill="#d95926" />
+        <text x="273.7" y="220.9" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">31.85</text>
+        <text x="296.7" y="171.9" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">78.95</text>
+        <text x="285.2" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">500K</text><path d="M 326.90000000000003 260
+    L 326.90000000000003 197.7416
+    Q 326.90000000000003 193.7416 330.90000000000003 193.7416
+    L 342.90000000000003 193.7416
+    Q 346.90000000000003 193.7416 346.90000000000003 197.7416
+    L 346.90000000000003 260
+    Z" fill="#3987e5" /><path d="M 349.90000000000003 260
+    L 349.90000000000003 99.6696
+    Q 349.90000000000003 95.6696 353.90000000000003 95.6696
+    L 365.90000000000003 95.6696
+    Q 369.90000000000003 95.6696 369.90000000000003 99.6696
+    L 369.90000000000003 260
+    Z" fill="#d95926" />
+        <text x="336.9" y="187.7" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">63.71</text>
+        <text x="359.9" y="89.7" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">158.01</text>
+        <text x="348.4" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">1M</text>
+    </g>
+    <g transform="translate(440, 0)">
+      <text x="64" y="-14" font-size="14" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Download (server streaming)</text>
+      
+        <line x1="64" y1="260.0" x2="380" y2="260.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="264.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">0</text>
+        <line x1="64" y1="208.0" x2="380" y2="208.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="212.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">50</text>
+        <line x1="64" y1="156.0" x2="380" y2="156.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="160.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">100</text>
+        <line x1="64" y1="104.0" x2="380" y2="104.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="108.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">150</text>
+        <line x1="64" y1="52.0" x2="380" y2="52.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="56.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">200</text>
+        <line x1="64" y1="0.0" x2="380" y2="0.0" stroke="#2c2c2a" stroke-width="1" />
+        <text x="54" y="4.0" text-anchor="end" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">250</text>
+      <line x1="64" y1="260" x2="380" y2="260" stroke="#383835" stroke-width="1" />
+      <path d="M 74.1 260 L 74.1 259.896 L 94.1 259.896 L 94.1 260 Z" fill="#3987e5" /><path d="M 97.1 260 L 97.1 259.792 L 117.1 259.792 L 117.1 260 Z" fill="#d95926" />
+        <text x="84.1" y="253.8" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">0.1</text>
+        <text x="107.1" y="240.8" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">0.2</text>
+        <text x="95.6" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">1K</text><path d="M 137.3 260 L 137.3 258.9288 L 157.3 258.9288 L 157.3 260 Z" fill="#3987e5" /><path d="M 160.3 260 L 160.3 257.8472 L 180.3 257.8472 L 180.3 260 Z" fill="#d95926" />
+        <text x="147.3" y="251.8" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">1.03</text>
+        <text x="170.3" y="238.8" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">2.07</text>
+        <text x="158.8" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">10K</text><path d="M 200.5 260
+    L 200.5 253.0488
+    Q 200.5 249.0488 204.5 249.0488
+    L 216.5 249.0488
+    Q 220.5 249.0488 220.5 253.0488
+    L 220.5 260
+    Z" fill="#3987e5" /><path d="M 223.5 260
+    L 223.5 242.1392
+    Q 223.5 238.1392 227.5 238.1392
+    L 239.5 238.1392
+    Q 243.5 238.1392 243.5 242.1392
+    L 243.5 260
+    Z" fill="#d95926" />
+        <text x="210.5" y="232.1" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">10.53</text>
+        <text x="233.5" y="219.1" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">21.02</text>
+        <text x="222.0" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">100K</text><path d="M 263.70000000000005 260
+    L 263.70000000000005 208.1104
+    Q 263.70000000000005 204.1104 267.70000000000005 204.1104
+    L 279.70000000000005 204.1104
+    Q 283.70000000000005 204.1104 283.70000000000005 208.1104
+    L 283.70000000000005 260
+    Z" fill="#3987e5" /><path d="M 286.70000000000005 260
+    L 286.70000000000005 153.3544
+    Q 286.70000000000005 149.3544 290.70000000000005 149.3544
+    L 302.70000000000005 149.3544
+    Q 306.70000000000005 149.3544 306.70000000000005 153.3544
+    L 306.70000000000005 260
+    Z" fill="#d95926" />
+        <text x="273.7" y="198.1" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">53.74</text>
+        <text x="296.7" y="143.4" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">106.39</text>
+        <text x="285.2" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">500K</text><path d="M 326.90000000000003 260
+    L 326.90000000000003 151.732
+    Q 326.90000000000003 147.732 330.90000000000003 147.732
+    L 342.90000000000003 147.732
+    Q 346.90000000000003 147.732 346.90000000000003 151.732
+    L 346.90000000000003 260
+    Z" fill="#3987e5" /><path d="M 349.90000000000003 260
+    L 349.90000000000003 42.376000000000005
+    Q 349.90000000000003 38.376000000000005 353.90000000000003 38.376000000000005
+    L 365.90000000000003 38.376000000000005
+    Q 369.90000000000003 38.376000000000005 369.90000000000003 42.376000000000005
+    L 369.90000000000003 260
+    Z" fill="#d95926" />
+        <text x="336.9" y="141.7" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">107.95</text>
+        <text x="359.9" y="32.4" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">213.10</text>
+        <text x="348.4" y="282" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">1M</text>
+    </g>
+    <text x="410" y="310" text-anchor="middle" font-size="12" fill="#898781" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Records</text>
+  </g>
+</svg>
