@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Clark1945/astro-blog/compare/v1.3.0...v1.4.0) (2026-10-13)
+
+
+### Features
+
+* **layout:** 首次進站的 PRTS 開場動畫（初探泰拉） ([89e9e71](https://github.com/Clark1945/astro-blog/commit/89e9e717beed4e3c70f557a27ee848ce1b8d8257))
+
 ## [1.3.0](https://github.com/Clark1945/astro-blog/compare/v1.2.0...v1.3.0) (2026-09-25)
 
 
