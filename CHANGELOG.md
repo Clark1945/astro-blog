@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.0](https://github.com/Clark1945/astro-blog/compare/v1.4.0...v1.5.0) (2026-10-13)
+
+
+### Features
+
+* **layout:** 開場動畫支援手機 / 直式 / 小視窗 ([48c0357](https://github.com/Clark1945/astro-blog/commit/48c035786a0b8bafcfae84262a405794f7ef8771))
+* **layout:** 開場動畫支援手機 / 直式 / 小視窗（直式排版） ([e5207b3](https://github.com/Clark1945/astro-blog/commit/e5207b36709c2641843738b6f6c7fa91e7a9c7fe))
+
 ## [1.4.0](https://github.com/Clark1945/astro-blog/compare/v1.3.0...v1.4.0) (2026-10-13)
 
 
