@@ -8,6 +8,7 @@ import {
 import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
+import PrtsIntro from "@/components/PrtsIntro.astro";
 import "@/styles/global.css";
 
 const t = translateFor(Astro.currentLocale);
@@ -169,6 +170,7 @@ const structuredData = {
       data-cf-beacon='{"token": "a7baf6fd6a664c4d96f1e86a178c93bf"}'></script>
   </head>
   <body>
+    <PrtsIntro />
     <slot />
   </body>
 </html>
