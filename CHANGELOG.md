@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.3.0](https://github.com/Clark1945/astro-blog/compare/v1.2.0...v1.3.0) (2026-09-25)
+
+
+### Features
+
+* **blog:** gRPC 實測(1) 文章的表格改成長條圖 ([76a82e7](https://github.com/Clark1945/astro-blog/commit/76a82e7d195a455e7d10fa37e2b7a0abb6201c8c))
+* **blog:** 新增 gRPC 實測(1) Streaming vs REST 效能比較文章 ([7c43f4f](https://github.com/Clark1945/astro-blog/commit/7c43f4fafb6a6797465d0cee53ec02d06e46d313))
+* **blog:** 新增 gRPC 是什麼文章英日文版本，並修正範例程式碼與代名詞錯誤 ([8847b26](https://github.com/Clark1945/astro-blog/commit/8847b26db0f92ce6006807aea405daaa3bbb3968))
+* **chitchat:** 列表頁也顯示瀏覽數（唯讀不累加） ([5e2d4d8](https://github.com/Clark1945/astro-blog/commit/5e2d4d86cbef2ea4ece2e7ddf1eae7d5a51ecd3f))
+* **chitchat:** 新增《阿索拉 星之祈願》畫冊開箱雜談 ([30df370](https://github.com/Clark1945/astro-blog/commit/30df37011e89a00ff53d1c47a7b0562974cbb689))
+
+
+### Bug Fixes
+
+* **chitchat:** 修正 dev 模式下草稿詳情頁 404 ([262760e](https://github.com/Clark1945/astro-blog/commit/262760ea20c1a0d32d9f350a038976b2dfef5248))
+
 ## [1.2.0](https://github.com/Clark1945/astro-blog/compare/v1.1.0...v1.2.0) (2026-09-24)
 
 
