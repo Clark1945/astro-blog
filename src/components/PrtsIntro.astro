@@ -1,0 +1,923 @@
+---
+// 開場動畫：PRTS 登入畫面（初探泰拉）。
+//
+// - 只在「新分頁第一次進站」播放（sessionStorage），站內換頁不會重播；
+//   網址加上 ?intro 可強制重播（方便預覽 / 調整）。
+// - 點任何地方、Esc / Enter / Space、或右下角 SKIP 都能跳過。
+// - 偏好減少動態、手機直式、太小的視窗一律不播（這個動畫是 16:9 橫式設計）。
+// - 所有 class / 變數 / keyframes 都加 prts- 前綴，不會碰到網站其他樣式。
+---
+
+<!--
+  決定要不要播必須在第一次繪製前同步完成，不然會先閃一下網頁才被遮罩蓋住。
+  這段放在 <body> 最前面，瀏覽器解析到這裡會先執行，後面的內容還沒畫出來。
+-->
+<script is:inline>
+  (() => {
+    try {
+      const root = document.documentElement;
+      const forced = new URLSearchParams(location.search).has("intro");
+      const seen = sessionStorage.getItem("prts-intro-seen") === "1";
+      const reduceMotion = matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      const roomy = matchMedia(
+        "(min-width: 900px) and (min-height: 500px) and (min-aspect-ratio: 1/1)"
+      ).matches;
+      if ((forced || !seen) && !reduceMotion && roomy) {
+        root.setAttribute("data-prts-intro", "pending");
+        sessionStorage.setItem("prts-intro-seen", "1");
+        // 保險：就算後面的腳本載入失敗，30 秒後也一定會把遮罩拿掉，不會讓網站被黑畫面卡死
+        setTimeout(() => root.removeAttribute("data-prts-intro"), 30000);
+      }
+    } catch {
+      /* sessionStorage 被封鎖等情況：就不播 */
+    }
+  })();
+</script>
+
+<div class="prts-splash">
+  <button type="button" class="prts-skip" aria-label="Skip intro animation">
+    SKIP <span aria-hidden="true">▸</span>
+  </button>
+
+  <div class="prts-stage" aria-hidden="true">
+    <div class="prts-sky"></div>
+
+    <div class="prts-corner prts-logo">
+      <div class="prts-rule"></div>
+      <div class="prts-prts">PRTS</div>
+      <div class="prts-synth">SYNTHESIZE INFORMATION</div>
+      <div class="prts-os-line">
+        <span class="prts-analysis">ANALYSIS</span><span class="prts-os"
+          >OS</span
+        >
+      </div>
+      <div class="prts-rule"></div>
+    </div>
+
+    <div class="prts-center">
+      <div class="prts-hero">
+        <div class="prts-logo prts-hero-logo">
+          <div class="prts-rule prts-top"></div>
+          <div class="prts-body">
+            <div class="prts-prts">PRTS</div>
+            <div class="prts-synth">SYNTHESIZE INFORMATION</div>
+            <div class="prts-os-line">
+              <span class="prts-analysis">ANALYSIS</span><span class="prts-os"
+                >OS</span
+              >
+            </div>
+          </div>
+          <div class="prts-rule prts-bottom"></div>
+        </div>
+
+        <div class="prts-form">
+          <div class="prts-row">
+            <span class="prts-label">USERNAME:</span><span class="prts-field"
+              ><span class="prts-value" data-prts="user"></span><span
+                class="prts-caret"
+                data-prts="caret-user"></span></span
+            >
+          </div>
+          <div class="prts-row">
+            <span class="prts-label">PASSWORD:</span><span class="prts-field"
+              ><span class="prts-value prts-dots" data-prts="pass"></span><span
+                class="prts-caret"
+                data-prts="caret-pass"></span></span
+            >
+            <span class="prts-forgot">FORGOT YOUR PASSWORD?</span>
+          </div>
+        </div>
+
+        <div class="prts-badge">
+          <svg viewBox="0 0 100 100"
+            ><path d="M38 12 L25 42 M72 12 L59 42 M38 58 L25 88 M72 58 L59 88"
+            ></path></svg
+          >
+          <div class="prts-bar"></div>
+        </div>
+
+        <div class="prts-welcome-text">
+          <span class="prts-w1">ADMINISTRATOR</span>
+          <span class="prts-w2">AUTHORITY</span>
+          <span class="prts-w3">WELCOME</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="prts-profile">
+      <div class="prts-tag"><b></b>OPERATOR PROFILE<b></b></div>
+      <div class="prts-card">
+        <div class="prts-rule prts-top"></div>
+        <div class="prts-body">
+          <div class="prts-name">Clark</div>
+          <div class="prts-role"><span>JAVA BACKEND</span><b>ENGINEER</b></div>
+        </div>
+        <div class="prts-rule prts-bottom"></div>
+      </div>
+      <p class="prts-intro" data-prts="intro"></p>
+    </div>
+
+    <div class="prts-credit">POWERED BY RHODES ISLAND</div>
+  </div>
+</div>
+
+<style is:global>
+  /* ---------- 外層：蓋滿整個視窗，只在 html[data-prts-intro] 時顯示 ---------- */
+  .prts-splash {
+    /* 切斷從網站（Tailwind preflight 等）繼承來的 line-height / 字型 / 對齊等樣式，
+       讓裡面的環境跟原本獨立的 HTML 頁面一樣乾淨。CSS 變數不受 all 影響。 */
+    all: initial;
+
+    --prts-bg: #cdd5d9;
+    --prts-ink: #0b0c0e;
+    --prts-blue-top: #a9bcc6;
+    --prts-blue-mid: #d9e6ec;
+    --prts-blue-low: #7f9aa7;
+    --u: min(1vw, 1.78vh); /* 依視窗大小縮放，16:9 的比例 */
+
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    place-items: center;
+    overflow: hidden;
+    background: #000;
+    color: var(--prts-ink);
+    font-family: "Montserrat", "Microsoft JhengHei", sans-serif;
+    transition: opacity 0.5s ease;
+  }
+  html[data-prts-intro="pending"] .prts-splash {
+    display: grid;
+  }
+  html[data-prts-intro="pending"] {
+    overflow: hidden; /* 播放期間鎖住底下頁面的捲動 */
+  }
+  .prts-splash.prts-leaving {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .prts-splash,
+  .prts-splash * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .prts-skip {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2;
+    cursor: pointer;
+    font:
+      700 12px "Montserrat",
+      "Microsoft JhengHei",
+      sans-serif;
+    letter-spacing: 0.2em;
+    color: #fff;
+    background: rgba(11, 12, 14, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 9px 16px;
+  }
+  .prts-skip:hover {
+    background: rgba(11, 12, 14, 1);
+  }
+  .prts-skip:focus-visible {
+    outline: 2px solid #9fd3ea;
+    outline-offset: 2px;
+  }
+
+  /* ---------- 舞台 ---------- */
+  .prts-stage {
+    position: relative;
+    width: calc(var(--u) * 100);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--prts-bg);
+  }
+  .prts-sky {
+    /* 登入成功後的淺藍光暈背景 */
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    background:
+      radial-gradient(
+        60% 22% at 50% 52%,
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0) 70%
+      ),
+      linear-gradient(
+        180deg,
+        var(--prts-blue-top) 0%,
+        var(--prts-blue-mid) 45%,
+        #eef4f7 52%,
+        var(--prts-blue-mid) 60%,
+        var(--prts-blue-low) 100%
+      );
+  }
+  .prts-stage.welcome .prts-sky {
+    opacity: 1;
+  }
+
+  /* ---------- 標誌 ---------- */
+  .prts-logo {
+    display: inline-grid;
+    line-height: 0.9;
+    color: var(--prts-ink);
+  }
+  .prts-logo .prts-rule {
+    height: max(1px, calc(var(--u) * 0.1));
+    background: var(--prts-ink);
+  }
+  .prts-logo .prts-prts {
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    font-size: calc(var(--u) * 4.4);
+    margin: calc(var(--u) * 0.2) 0 0;
+  }
+  .prts-logo .prts-synth {
+    font-weight: 800;
+    font-size: calc(var(--u) * 0.78);
+    letter-spacing: -0.01em;
+    margin-top: calc(var(--u) * 0.15);
+  }
+  .prts-logo .prts-os-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: calc(var(--u) * 0.1) 0 calc(var(--u) * 0.2);
+  }
+  .prts-logo .prts-analysis {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 300;
+    font-size: calc(var(--u) * 1.9);
+    letter-spacing: 0.01em;
+  }
+  .prts-logo .prts-os {
+    font-weight: 800;
+    font-size: calc(var(--u) * 1.7);
+  }
+
+  /* 左上角的小標誌：一開始只有 PRTS，接著展開完整的字 */
+  .prts-corner {
+    position: absolute;
+    left: calc(var(--u) * 6.2);
+    top: calc(var(--u) * 4.6);
+    transform-origin: left top;
+    transform: scale(0.42);
+  }
+  .prts-corner .prts-rule,
+  .prts-corner .prts-synth,
+  .prts-corner .prts-os-line {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .prts-corner .prts-prts {
+    transition: font-size 0.4s ease;
+  }
+  .prts-stage.corner-full .prts-corner .prts-synth,
+  .prts-stage.corner-full .prts-corner .prts-os-line,
+  .prts-stage.corner-full .prts-corner .prts-rule {
+    opacity: 1;
+  }
+  .prts-stage.fade .prts-corner {
+    opacity: 0.85;
+  }
+
+  /* ---------- 中央的組合：標誌 + 登入表單 / 方框 + 歡迎文字 ---------- */
+  .prts-center {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+  }
+
+  /* 開場的細線 */
+  .prts-hero {
+    position: relative;
+    transition: transform 0.7s cubic-bezier(0.7, 0, 0.2, 1);
+  }
+
+  /* 開場：一條細線從中間往左右拉長 → 分成上下兩條往外展開 → 內容從中間被「打開」 */
+  .prts-hero-logo {
+    position: relative;
+    padding: calc(var(--u) * 0.3) 0;
+  }
+  .prts-hero-logo .prts-rule {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      top 0.6s cubic-bezier(0.7, 0, 0.2, 1);
+  }
+  .prts-stage.line-on .prts-hero-logo .prts-rule {
+    transform: scaleX(1);
+  }
+  .prts-stage.logo-on .prts-hero-logo .prts-rule.prts-top {
+    top: 0;
+  }
+  .prts-stage.logo-on .prts-hero-logo .prts-rule.prts-bottom {
+    top: calc(100% - max(1px, calc(var(--u) * 0.1)));
+  }
+
+  /* 內容的遮罩跟著兩條線一起往上下打開，所以中間的 SYNTHESIZE INFORMATION 最先露出來 */
+  .prts-hero-logo .prts-body {
+    clip-path: inset(50% 0 50% 0);
+    transition: clip-path 0.6s cubic-bezier(0.7, 0, 0.2, 1);
+  }
+  .prts-stage.logo-on .prts-hero-logo .prts-body {
+    clip-path: inset(-12% -4% -12% -4%);
+  }
+
+  /* PRTS 帶著殘影從左邊滑進來，ANALYSIS 稍晚，OS 最後淡入 */
+  .prts-hero-logo .prts-prts,
+  .prts-hero-logo .prts-analysis {
+    transform: translateX(-38%);
+    filter: blur(calc(var(--u) * 0.35));
+    opacity: 0;
+    transition:
+      transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+      filter 0.5s ease,
+      opacity 0.25s ease;
+  }
+  .prts-hero-logo .prts-analysis {
+    transform: translateX(-26%);
+  }
+  .prts-stage.logo-on .prts-hero-logo .prts-prts {
+    transform: none;
+    filter: none;
+    opacity: 1;
+    transition-delay: 0.08s;
+  }
+  .prts-stage.logo-on .prts-hero-logo .prts-analysis {
+    transform: none;
+    filter: none;
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+  .prts-hero-logo .prts-os {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .prts-stage.logo-on .prts-hero-logo .prts-os {
+    opacity: 1;
+    transition-delay: 0.55s;
+  }
+
+  /* 往左移的時候帶一點動態模糊 */
+  .prts-stage.slide .prts-hero-logo {
+    animation: prts-smear 0.7s ease;
+  }
+  @keyframes prts-smear {
+    0%,
+    100% {
+      filter: none;
+    }
+    40% {
+      filter: blur(calc(var(--u) * 0.18));
+    }
+  }
+  .prts-stage.slide .prts-hero {
+    transform: translateX(calc(var(--u) * -10));
+  }
+  .prts-stage.success .prts-hero {
+    transform: translateX(calc(var(--u) * -10.5));
+  }
+
+  /* 登入表單 */
+  .prts-form {
+    position: absolute;
+    left: calc(100% + var(--u) * 3);
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(var(--u) * 17);
+    font-size: calc(var(--u) * 0.62);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+  .prts-form .prts-row {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: calc(var(--u) * 0.5);
+    opacity: 0;
+    transform: translateY(calc(var(--u) * 0.5));
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+  .prts-form .prts-row + .prts-row {
+    margin-top: calc(var(--u) * 3.6);
+  }
+  .prts-form .prts-label {
+    width: calc(var(--u) * 5.6);
+    text-align: right;
+    flex: none;
+  }
+  .prts-form .prts-field {
+    position: relative;
+    flex: 1;
+    height: calc(var(--u) * 1.3);
+    display: flex;
+    align-items: flex-end;
+  }
+  .prts-form .prts-field::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: max(1px, calc(var(--u) * 0.08));
+    width: 0;
+    background: var(--prts-ink);
+    transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s;
+  }
+  .prts-form .prts-value {
+    font-weight: 400;
+    font-style: italic;
+    font-size: calc(var(--u) * 1.05);
+    letter-spacing: 0.02em;
+    padding: 0 0 calc(var(--u) * 0.15) calc(var(--u) * 0.3);
+    white-space: pre;
+  }
+  .prts-form .prts-dots {
+    font-style: normal;
+    letter-spacing: 0.14em;
+    font-size: calc(var(--u) * 0.95);
+  }
+  .prts-form .prts-caret {
+    display: inline-block;
+    width: max(1px, calc(var(--u) * 0.08));
+    height: calc(var(--u) * 1.05);
+    background: var(--prts-ink);
+    margin-left: 2px;
+    vertical-align: -0.1em;
+    animation: prts-blink 0.8s steps(1) infinite;
+    opacity: 0;
+  }
+  .prts-form .prts-caret.on {
+    opacity: 1;
+  }
+  @keyframes prts-blink {
+    50% {
+      visibility: hidden;
+    }
+  }
+  .prts-form .prts-forgot {
+    position: absolute;
+    left: 0;
+    top: calc(100% + calc(var(--u) * 0.3));
+    width: calc(var(--u) * 5.6);
+    text-align: right;
+    font-size: calc(var(--u) * 0.33);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+  }
+  .prts-stage.form-on .prts-form .prts-row {
+    opacity: 1;
+    transform: none;
+  }
+  .prts-stage.form-on .prts-form .prts-field::after {
+    width: 100%;
+  }
+  .prts-stage.form-on .prts-form .prts-row:nth-child(2) {
+    transition-delay: 0.12s;
+  }
+  .prts-stage.badge-on .prts-form {
+    opacity: 0;
+    transition: opacity 0.15s ease 0.15s;
+  }
+
+  /* 黑色方框（//）與成功後的空心方框 */
+  .prts-badge {
+    position: absolute;
+    left: calc(100% + var(--u) * 11);
+    top: 50%;
+    width: calc(var(--u) * 6.6);
+    aspect-ratio: 1;
+    transform: translate(0, -50%) scale(0.2);
+    opacity: 0;
+    background: var(--prts-ink);
+    color: #fff;
+    border: calc(var(--u) * 0.34) solid var(--prts-ink);
+    display: grid;
+    place-items: center;
+  }
+  .prts-badge svg {
+    width: 74%;
+    height: 74%;
+  }
+  .prts-badge svg path {
+    stroke: currentColor;
+    stroke-width: 6;
+    stroke-linecap: butt;
+    fill: none;
+  }
+  .prts-stage.badge-on .prts-badge {
+    animation: prts-pop 0.38s cubic-bezier(0.2, 1.6, 0.4, 1) forwards;
+  }
+  @keyframes prts-pop {
+    0% {
+      opacity: 0;
+      transform: translate(0, -50%) scale(0.2);
+    }
+    40% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, -50%) scale(1);
+    }
+  }
+  .prts-badge .prts-bar {
+    position: absolute;
+    left: calc(var(--u) * -0.34);
+    right: calc(var(--u) * -0.34);
+    bottom: calc(var(--u) * -1.1);
+    height: calc(var(--u) * 0.38);
+    background: var(--prts-ink);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  .prts-stage.verify .prts-badge {
+    background: transparent;
+    color: var(--prts-ink);
+    transition:
+      background 0.25s,
+      color 0.25s;
+  }
+  .prts-stage.verify .prts-badge .prts-bar {
+    animation: prts-load 0.8s cubic-bezier(0.6, 0, 0.3, 1) forwards;
+  }
+  @keyframes prts-load {
+    to {
+      transform: scaleX(1);
+    }
+  }
+  .prts-stage.success .prts-badge {
+    left: calc(100% + var(--u) * 2);
+    transition: left 0.7s cubic-bezier(0.7, 0, 0.2, 1);
+  }
+  .prts-stage.success .prts-badge .prts-bar {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  /* 歡迎文字 */
+  .prts-welcome-text {
+    position: absolute;
+    left: calc(100% + var(--u) * 10.2);
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 0.92;
+    white-space: nowrap;
+  }
+  .prts-welcome-text span {
+    display: block;
+    clip-path: inset(0 100% 0 0);
+  }
+  .prts-welcome-text .prts-w1 {
+    font-weight: 800;
+    font-size: calc(var(--u) * 1.45);
+    letter-spacing: -0.01em;
+  }
+  .prts-welcome-text .prts-w2 {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 400;
+    font-size: calc(var(--u) * 2.25);
+    margin: calc(var(--u) * 0.05) 0 calc(var(--u) * 0.15);
+  }
+  .prts-welcome-text .prts-w3 {
+    font-weight: 900;
+    font-size: calc(var(--u) * 2.05);
+    letter-spacing: -0.02em;
+  }
+  .prts-stage.welcome .prts-welcome-text span {
+    animation: prts-wipe 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  .prts-stage.welcome .prts-welcome-text .prts-w2 {
+    animation-delay: 0.12s;
+  }
+  .prts-stage.welcome .prts-welcome-text .prts-w3 {
+    animation-delay: 0.24s;
+  }
+  @keyframes prts-wipe {
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* 結尾：整組淡出，浮現點陣圓盤 */
+  /* 結尾：登入畫面淡出（往上飄、變模糊），轉到介紹頁 */
+  .prts-stage.fade .prts-center {
+    opacity: 0;
+    filter: blur(calc(var(--u) * 0.3));
+    transform: translate(-50%, -50%) translateY(calc(var(--u) * -2));
+    transition: all 0.9s ease;
+  }
+
+  /* ---------- 介紹頁 ---------- */
+  .prts-profile {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  .prts-stage.profile-on .prts-profile {
+    visibility: visible;
+  }
+  .prts-profile .prts-tag {
+    font-weight: 800;
+    font-size: calc(var(--u) * 0.7);
+    letter-spacing: 0.32em;
+    margin-bottom: calc(var(--u) * 1.1);
+    opacity: 0;
+    transform: translateY(calc(var(--u) * 0.6));
+    transition:
+      opacity 0.5s ease 0.9s,
+      transform 0.5s ease 0.9s;
+  }
+  .prts-profile .prts-tag b {
+    display: inline-block;
+    width: calc(var(--u) * 1.6);
+    height: max(1px, calc(var(--u) * 0.1));
+    background: var(--prts-ink);
+    vertical-align: middle;
+    margin: 0 calc(var(--u) * 0.8);
+  }
+  .prts-stage.profile-on .prts-profile .prts-tag {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* 名字：跟開場的標誌一樣，一條線拉長 → 上下展開 → 內容從中間打開 */
+  .prts-card {
+    position: relative;
+    padding: calc(var(--u) * 0.9) calc(var(--u) * 1.2);
+  }
+  .prts-card .prts-rule {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: max(1px, calc(var(--u) * 0.1));
+    background: var(--prts-ink);
+    transform: scaleX(0);
+    transition:
+      transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+      top 0.65s cubic-bezier(0.7, 0, 0.2, 1);
+  }
+  .prts-stage.profile-on .prts-card .prts-rule {
+    transform: scaleX(1);
+  }
+  .prts-stage.profile-open .prts-card .prts-rule.prts-top {
+    top: 0;
+  }
+  .prts-stage.profile-open .prts-card .prts-rule.prts-bottom {
+    top: calc(100% - max(1px, calc(var(--u) * 0.1)));
+  }
+  .prts-card .prts-body {
+    clip-path: inset(50% 0 50% 0);
+    transition: clip-path 0.65s cubic-bezier(0.7, 0, 0.2, 1);
+  }
+  .prts-stage.profile-open .prts-card .prts-body {
+    clip-path: inset(-10% -3% -10% -3%);
+  }
+  .prts-card .prts-name {
+    font-weight: 900;
+    font-size: calc(var(--u) * 8.4);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    transform: translateX(-12%);
+    filter: blur(calc(var(--u) * 0.4));
+    opacity: 0;
+    transition:
+      transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s,
+      filter 0.55s ease 0.1s,
+      opacity 0.3s ease 0.1s;
+  }
+  .prts-card .prts-role {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: calc(var(--u) * 0.5);
+    gap: calc(var(--u) * 2);
+  }
+  .prts-card .prts-role span {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 300;
+    font-size: calc(var(--u) * 2.3);
+    letter-spacing: 0.04em;
+  }
+  .prts-card .prts-role b {
+    font-weight: 800;
+    font-size: calc(var(--u) * 2);
+  }
+  .prts-card .prts-role {
+    opacity: 0;
+    transform: translateX(-8%);
+    transition:
+      opacity 0.4s ease 0.3s,
+      transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
+  }
+  .prts-stage.profile-open .prts-card .prts-name,
+  .prts-stage.profile-open .prts-card .prts-role {
+    transform: none;
+    filter: none;
+    opacity: 1;
+  }
+
+  .prts-intro {
+    margin-top: calc(var(--u) * 2.4);
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    font-weight: 500;
+    font-size: calc(var(--u) * 2);
+    letter-spacing: 0.12em;
+  }
+  .prts-intro span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(calc(var(--u) * 0.5));
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+  .prts-stage.profile-text .prts-intro span {
+    opacity: 1;
+    transform: none;
+  }
+
+  .prts-credit {
+    position: absolute;
+    right: calc(var(--u) * 3);
+    bottom: calc(var(--u) * 1.8);
+    font-size: calc(var(--u) * 0.38);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    opacity: 0.55;
+  }
+</style>
+
+<script>
+  const NAME = "Clark";
+
+  // 介紹文字跟著網站語系走（卡片上的 JAVA BACKEND ENGINEER 本來就是英文）
+  const INTRO_BY_LANG: Record<string, string> = {
+    zh: `我是 ${NAME}，一名 Java 後端工程師`,
+    ja: `私は ${NAME}、Java バックエンドエンジニアです`,
+    en: `I'm ${NAME}, a Java backend engineer`,
+  };
+
+  const ABORT = Symbol("prts-intro-ended");
+  const sleep = (ms: number) =>
+    new Promise<void>(resolve => setTimeout(resolve, ms));
+
+  const root = document.querySelector<HTMLElement>(".prts-splash");
+  if (root && document.documentElement.dataset.prtsIntro === "pending") {
+    void runIntro(root);
+  }
+
+  async function runIntro(root: HTMLElement) {
+    const q = <T extends HTMLElement>(selector: string) =>
+      root.querySelector<T>(selector)!;
+    const stage = q(".prts-stage");
+    const user = q('[data-prts="user"]');
+    const pass = q('[data-prts="pass"]');
+    const caretUser = q('[data-prts="caret-user"]');
+    const caretPass = q('[data-prts="caret-pass"]');
+    const intro = q('[data-prts="intro"]');
+    const skipButton = q(".prts-skip");
+
+    const lang = document.documentElement.lang.slice(0, 2);
+    const introText = INTRO_BY_LANG[lang] ?? INTRO_BY_LANG.en;
+
+    let ended = false;
+
+    function finish() {
+      if (ended) return;
+      ended = true;
+      window.removeEventListener("keydown", onKeydown);
+      root.classList.add("prts-leaving");
+      setTimeout(() => {
+        document.documentElement.removeAttribute("data-prts-intro");
+      }, 500);
+    }
+
+    function onKeydown(event: KeyboardEvent) {
+      if (["Escape", "Enter", " "].includes(event.key)) {
+        event.preventDefault();
+        finish();
+      }
+    }
+
+    root.addEventListener("click", finish);
+    window.addEventListener("keydown", onKeydown);
+    skipButton.focus({ preventScroll: true });
+
+    // 介紹文字：每個字各自一個 span，依序浮現。
+    // 空格換成不換行空格，不然 inline-block 裡單獨的空白會被收掉、字就黏在一起。
+    const shownChars = [...introText].map(ch => (ch === " " ? "\u00a0" : ch));
+    shownChars.forEach((ch, i) => {
+      const span = document.createElement("span");
+      span.textContent = ch;
+      span.style.transitionDelay = `${i * 45}ms`;
+      intro.appendChild(span);
+    });
+    // 字型子集要涵蓋「實際畫出來的字元」（含不換行空格），
+    // 不然那個字元會掉到備用字型、寬度對不上
+    const glyphText = shownChars.join("");
+
+    // 字型只在真的要播的時候才載（回訪的人不用付這個流量）。
+    // Noto Sans TC 只要介紹文字那幾個字，用 text= 讓 Google 只回傳這些字的字型檔。
+    const loadStyle = (href: string) =>
+      new Promise<void>(resolve => {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = href;
+        link.onload = link.onerror = () => resolve();
+        document.head.appendChild(link);
+      });
+    async function loadFonts() {
+      await Promise.all([
+        loadStyle(
+          "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,800;0,900;1,400&family=Barlow+Semi+Condensed:wght@300;400&display=swap"
+        ),
+        loadStyle(
+          `https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&text=${encodeURIComponent(glyphText)}&display=swap`
+        ),
+      ]);
+      await Promise.allSettled([
+        document.fonts.load("900 1em Montserrat"),
+        document.fonts.load("800 1em Montserrat"),
+        document.fonts.load("italic 400 1em Montserrat"),
+        document.fonts.load('300 1em "Barlow Semi Condensed"'),
+        document.fonts.load('400 1em "Barlow Semi Condensed"'),
+        document.fonts.load('500 1em "Noto Sans TC"', glyphText),
+      ]);
+    }
+    // 離線或被擋的時候不要卡住：最多等 4 秒，之後用備用字型照樣播
+    await Promise.race([loadFonts(), sleep(4000)]);
+
+    /** 等一段時間，期間如果被跳過就中止整段動畫。 */
+    const wait = async (ms: number) => {
+      await sleep(ms);
+      if (ended) throw ABORT;
+    };
+    const step = async (ms: number, className: string) => {
+      await wait(ms);
+      stage.classList.add(className);
+    };
+    const type = async (el: HTMLElement, text: string, delay: number) => {
+      for (const ch of text) {
+        el.textContent += ch;
+        await wait(delay + Math.random() * delay * 0.6);
+      }
+    };
+
+    try {
+      if (ended) throw ABORT;
+      await step(600, "corner-full");
+      await step(500, "line-on");
+      await step(650, "logo-on");
+      await step(1500, "slide");
+      await step(450, "form-on");
+      await wait(700);
+      caretUser.classList.add("on");
+      await wait(250);
+      await type(user, NAME, 85);
+      caretUser.classList.remove("on");
+      caretPass.classList.add("on");
+      await wait(250);
+      await type(pass, "••••••••", 70);
+      caretPass.classList.remove("on");
+      await step(450, "badge-on");
+      await step(650, "verify");
+      await step(950, "success");
+      await step(350, "welcome");
+      await step(2400, "fade");
+      await step(1000, "profile-on"); // 線條出現
+      await step(600, "profile-open"); // 上下展開，名字與職稱出現
+      await step(1100, "profile-text"); // 介紹文字逐字浮現
+      await wait(1800); // 讓人把介紹讀完
+    } catch (error) {
+      if (error !== ABORT) throw error;
+    }
+    finish();
+  }
+</script>
