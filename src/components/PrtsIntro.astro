@@ -106,19 +106,6 @@
       </div>
     </div>
 
-    <div class="prts-profile">
-      <div class="prts-tag"><b></b>OPERATOR PROFILE<b></b></div>
-      <div class="prts-card">
-        <div class="prts-rule prts-top"></div>
-        <div class="prts-body">
-          <div class="prts-name">Clark</div>
-          <div class="prts-role"><span>JAVA BACKEND</span><b>ENGINEER</b></div>
-        </div>
-        <div class="prts-rule prts-bottom"></div>
-      </div>
-      <p class="prts-intro" data-prts="intro"></p>
-    </div>
-
     <div class="prts-credit">POWERED BY RHODES ISLAND</div>
   </div>
 </div>
@@ -617,150 +604,12 @@
     }
   }
 
-  /* 結尾：整組淡出，浮現點陣圓盤 */
-  /* 結尾：登入畫面淡出（往上飄、變模糊），轉到介紹頁 */
+  /* 結尾：登入畫面淡出（往上飄、變模糊），接著整個遮罩淡出、露出網站 */
   .prts-stage.fade .prts-center {
     opacity: 0;
     filter: blur(calc(var(--u) * 0.3));
     transform: translate(-50%, -50%) translateY(calc(var(--u) * -2));
     transition: all 0.9s ease;
-  }
-
-  /* ---------- 介紹頁 ---------- */
-  .prts-profile {
-    position: absolute;
-    left: 50%;
-    top: 47%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    justify-items: center;
-    text-align: center;
-    pointer-events: none;
-    visibility: hidden;
-  }
-  .prts-stage.profile-on .prts-profile {
-    visibility: visible;
-  }
-  .prts-profile .prts-tag {
-    font-weight: 800;
-    font-size: calc(var(--u) * 0.7);
-    letter-spacing: 0.32em;
-    margin-bottom: calc(var(--u) * 1.1);
-    opacity: 0;
-    transform: translateY(calc(var(--u) * 0.6));
-    transition:
-      opacity 0.5s ease 0.9s,
-      transform 0.5s ease 0.9s;
-  }
-  .prts-profile .prts-tag b {
-    display: inline-block;
-    width: calc(var(--u) * 1.6);
-    height: max(1px, calc(var(--u) * 0.1));
-    background: var(--prts-ink);
-    vertical-align: middle;
-    margin: 0 calc(var(--u) * 0.8);
-  }
-  .prts-stage.profile-on .prts-profile .prts-tag {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* 名字：跟開場的標誌一樣，一條線拉長 → 上下展開 → 內容從中間打開 */
-  .prts-card {
-    position: relative;
-    padding: calc(var(--u) * 0.9) calc(var(--u) * 1.2);
-  }
-  .prts-card .prts-rule {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: max(1px, calc(var(--u) * 0.1));
-    background: var(--prts-ink);
-    transform: scaleX(0);
-    transition:
-      transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
-      top 0.65s cubic-bezier(0.7, 0, 0.2, 1);
-  }
-  .prts-stage.profile-on .prts-card .prts-rule {
-    transform: scaleX(1);
-  }
-  .prts-stage.profile-open .prts-card .prts-rule.prts-top {
-    top: 0;
-  }
-  .prts-stage.profile-open .prts-card .prts-rule.prts-bottom {
-    top: calc(100% - max(1px, calc(var(--u) * 0.1)));
-  }
-  .prts-card .prts-body {
-    clip-path: inset(50% 0 50% 0);
-    transition: clip-path 0.65s cubic-bezier(0.7, 0, 0.2, 1);
-  }
-  .prts-stage.profile-open .prts-card .prts-body {
-    clip-path: inset(-10% -3% -10% -3%);
-  }
-  .prts-card .prts-name {
-    font-weight: 900;
-    font-size: calc(var(--u) * 8.4);
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    transform: translateX(-12%);
-    filter: blur(calc(var(--u) * 0.4));
-    opacity: 0;
-    transition:
-      transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s,
-      filter 0.55s ease 0.1s,
-      opacity 0.3s ease 0.1s;
-  }
-  .prts-card .prts-role {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-top: calc(var(--u) * 0.5);
-    gap: calc(var(--u) * 2);
-  }
-  .prts-card .prts-role span {
-    font-family: "Barlow Semi Condensed", sans-serif;
-    font-weight: 300;
-    font-size: calc(var(--u) * 2.3);
-    letter-spacing: 0.04em;
-  }
-  .prts-card .prts-role b {
-    font-weight: 800;
-    font-size: calc(var(--u) * 2);
-  }
-  .prts-card .prts-role {
-    opacity: 0;
-    transform: translateX(-8%);
-    transition:
-      opacity 0.4s ease 0.3s,
-      transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s;
-  }
-  .prts-stage.profile-open .prts-card .prts-name,
-  .prts-stage.profile-open .prts-card .prts-role {
-    transform: none;
-    filter: none;
-    opacity: 1;
-  }
-
-  .prts-intro {
-    margin-top: calc(var(--u) * 2.4);
-    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-    font-weight: 500;
-    font-size: calc(var(--u) * 2);
-    letter-spacing: 0.12em;
-  }
-  .prts-intro span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(calc(var(--u) * 0.5));
-    transition:
-      opacity 0.35s ease,
-      transform 0.35s ease;
-  }
-  .prts-stage.profile-text .prts-intro span {
-    opacity: 1;
-    transform: none;
   }
 
   .prts-credit {
@@ -776,13 +625,6 @@
 
 <script>
   const NAME = "Clark";
-
-  // 介紹文字跟著網站語系走（卡片上的 JAVA BACKEND ENGINEER 本來就是英文）
-  const INTRO_BY_LANG: Record<string, string> = {
-    zh: `我是 ${NAME}，一名 Java 後端工程師`,
-    ja: `私は ${NAME}、Java バックエンドエンジニアです`,
-    en: `I'm ${NAME}, a Java backend engineer`,
-  };
 
   const ABORT = Symbol("prts-intro-ended");
   const sleep = (ms: number) =>
@@ -801,11 +643,7 @@
     const pass = q('[data-prts="pass"]');
     const caretUser = q('[data-prts="caret-user"]');
     const caretPass = q('[data-prts="caret-pass"]');
-    const intro = q('[data-prts="intro"]');
     const skipButton = q(".prts-skip");
-
-    const lang = document.documentElement.lang.slice(0, 2);
-    const introText = INTRO_BY_LANG[lang] ?? INTRO_BY_LANG.en;
 
     let ended = false;
 
@@ -830,21 +668,7 @@
     window.addEventListener("keydown", onKeydown);
     skipButton.focus({ preventScroll: true });
 
-    // 介紹文字：每個字各自一個 span，依序浮現。
-    // 空格換成不換行空格，不然 inline-block 裡單獨的空白會被收掉、字就黏在一起。
-    const shownChars = [...introText].map(ch => (ch === " " ? "\u00a0" : ch));
-    shownChars.forEach((ch, i) => {
-      const span = document.createElement("span");
-      span.textContent = ch;
-      span.style.transitionDelay = `${i * 45}ms`;
-      intro.appendChild(span);
-    });
-    // 字型子集要涵蓋「實際畫出來的字元」（含不換行空格），
-    // 不然那個字元會掉到備用字型、寬度對不上
-    const glyphText = shownChars.join("");
-
     // 字型只在真的要播的時候才載（回訪的人不用付這個流量）。
-    // Noto Sans TC 只要介紹文字那幾個字，用 text= 讓 Google 只回傳這些字的字型檔。
     const loadStyle = (href: string) =>
       new Promise<void>(resolve => {
         const link = document.createElement("link");
@@ -858,9 +682,6 @@
         loadStyle(
           "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,800;0,900;1,400&family=Barlow+Semi+Condensed:wght@300;400&display=swap"
         ),
-        loadStyle(
-          `https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&text=${encodeURIComponent(glyphText)}&display=swap`
-        ),
       ]);
       await Promise.allSettled([
         document.fonts.load("900 1em Montserrat"),
@@ -868,7 +689,6 @@
         document.fonts.load("italic 400 1em Montserrat"),
         document.fonts.load('300 1em "Barlow Semi Condensed"'),
         document.fonts.load('400 1em "Barlow Semi Condensed"'),
-        document.fonts.load('500 1em "Noto Sans TC"', glyphText),
       ]);
     }
     // 離線或被擋的時候不要卡住：最多等 4 秒，之後用備用字型照樣播
@@ -910,11 +730,8 @@
       await step(650, "verify");
       await step(950, "success");
       await step(350, "welcome");
-      await step(2400, "fade");
-      await step(1000, "profile-on"); // 線條出現
-      await step(600, "profile-open"); // 上下展開，名字與職稱出現
-      await step(1100, "profile-text"); // 介紹文字逐字浮現
-      await wait(1800); // 讓人把介紹讀完
+      await step(2400, "fade"); // 歡迎畫面停一下，然後往上飄走
+      await wait(900); // 等它飄完，接著 finish() 讓整個遮罩淡出
     } catch (error) {
       if (error !== ABORT) throw error;
     }
