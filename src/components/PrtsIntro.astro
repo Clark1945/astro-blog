@@ -4,7 +4,9 @@
 // - 只在「新分頁第一次進站」播放（sessionStorage），站內換頁不會重播；
 //   網址加上 ?intro 可強制重播（方便預覽 / 調整）。
 // - 點任何地方、Esc / Enter / Space、或右下角 SKIP 都能跳過。
-// - 偏好減少動態、手機直式、太小的視窗一律不播（這個動畫是 16:9 橫式設計）。
+// - 偏好減少動態、或視窗小到放不下（寬 < 320 或高 < 420，例如橫放的手機）不播。
+// - 寬螢幕（≥ 900×500 的橫式）用原本 16:9 的橫式排版；手機、直式、較小的視窗
+//   改用直式排版（標誌在上、表單與歡迎文字往下堆疊），見 <style> 最後面。
 // - 所有 class / 變數 / keyframes 都加 prts- 前綴，不會碰到網站其他樣式。
 ---
 
@@ -21,8 +23,9 @@
       const reduceMotion = matchMedia(
         "(prefers-reduced-motion: reduce)"
       ).matches;
+      // 寬螢幕走橫式排版、其餘走直式排版（CSS 決定）；只有小到放不下才不播
       const roomy = matchMedia(
-        "(min-width: 900px) and (min-height: 500px) and (min-aspect-ratio: 1/1)"
+        "(min-width: 320px) and (min-height: 420px)"
       ).matches;
       if ((forced || !seen) && !reduceMotion && roomy) {
         root.setAttribute("data-prts-intro", "pending");
@@ -134,6 +137,8 @@
     color: var(--prts-ink);
     font-family: "Montserrat", "Microsoft JhengHei", sans-serif;
     transition: opacity 0.5s ease;
+    overscroll-behavior: none;
+    touch-action: none; /* 手機上不要讓手勢捲動到底下的頁面（點一下仍然會觸發跳過） */
   }
   html[data-prts-intro="pending"] .prts-splash {
     display: grid;
@@ -154,7 +159,7 @@
 
   .prts-skip {
     position: absolute;
-    right: 20px;
+    left: 20px;
     bottom: 20px;
     z-index: 2;
     cursor: pointer;
@@ -620,6 +625,97 @@
     font-weight: 800;
     letter-spacing: 0.08em;
     opacity: 0.55;
+  }
+
+  /* ---------- 手機 / 直式 / 較小的視窗：改用直式排版 ----------
+     原設計是 16:9 橫式（標誌在左、表單在右）。視窗不夠寬或是直式的時候，
+     舞台改成蓋滿整個視窗；標誌往上移，登入表單、徽章、歡迎文字改成往下垂直堆疊。
+     條件是「寬螢幕橫式」的反面，所以跟上面的橫式排版剛好互補、不會同時生效。 */
+  @media not all and (min-width: 900px) and (min-height: 500px) and (min-aspect-ratio: 1/1) {
+    .prts-splash {
+      --u: min(4.2vw, 2.4vh);
+    }
+    @supports (height: 1dvh) {
+      .prts-splash {
+        --u: min(4.2vw, 2.4dvh); /* 手機網址列伸縮時用動態高度 */
+      }
+    }
+    .prts-stage {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto;
+    }
+    .prts-corner {
+      left: calc(var(--u) * 1.6);
+      top: calc(var(--u) * 2.2);
+    }
+    .prts-center {
+      top: 47%;
+    }
+    /* 往上滑，不是往左滑 */
+    .prts-stage.slide .prts-hero {
+      transform: translateY(calc(var(--u) * -9));
+    }
+    .prts-stage.success .prts-hero {
+      transform: translateY(calc(var(--u) * -10));
+    }
+
+    /* 登入表單：在標誌正下方置中 */
+    .prts-form {
+      left: 50%;
+      top: calc(100% + var(--u) * 5.5);
+      margin-left: calc(var(--u) * -8.5);
+      transform: none;
+      font-size: calc(var(--u) * 0.78);
+    }
+    .prts-form .prts-forgot {
+      font-size: calc(var(--u) * 0.45);
+    }
+
+    /* 徽章：在表單的位置彈出，成功後稍微上移，歡迎文字接在它下面 */
+    .prts-badge {
+      left: 50%;
+      top: calc(100% + var(--u) * 8.5);
+      transform: translate(-50%, -50%) scale(0.2);
+    }
+    .prts-stage.badge-on .prts-badge {
+      animation-name: prts-pop-v;
+    }
+    @keyframes prts-pop-v {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2);
+      }
+      40% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    .prts-stage.success .prts-badge {
+      left: 50%;
+      top: calc(100% + var(--u) * 7);
+      transition: top 0.7s cubic-bezier(0.7, 0, 0.2, 1);
+    }
+    .prts-welcome-text {
+      left: 50%;
+      top: calc(100% + var(--u) * 12.5);
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .prts-credit {
+      right: calc(var(--u) * 2);
+      bottom: calc(var(--u) * 2);
+      font-size: calc(var(--u) * 0.5);
+    }
+    .prts-skip {
+      padding: 12px 18px; /* 手指好點 */
+      font-size: 13px;
+      bottom: max(20px, env(safe-area-inset-bottom));
+    }
   }
 </style>
 
