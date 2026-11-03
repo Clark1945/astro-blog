@@ -32,3 +32,53 @@ const title = `${pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)} | ${sit
   </main>
   <Footer />
 </Layout>
+
+<style is:global>
+  /* Creation 區塊：上圖下文的作品卡片 */
+  #about .creation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0 2rem;
+  }
+  #about .creation-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    color: var(--foreground);
+    text-decoration: none;
+    transition:
+      transform 0.15s ease,
+      border-color 0.15s ease;
+  }
+  #about .creation-card:hover,
+  #about .creation-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  #about .creation-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+    border-bottom: 1px solid var(--border);
+    background: var(--muted);
+  }
+  #about .creation-title {
+    padding: 0.75rem 0.875rem 0.25rem;
+    font-weight: 600;
+  }
+  #about .creation-card:hover .creation-title {
+    color: var(--accent);
+  }
+  #about .creation-desc {
+    padding: 0 0.875rem 0.875rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+</style>
