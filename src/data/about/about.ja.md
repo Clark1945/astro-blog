@@ -14,13 +14,43 @@ title: "私について"
 
 ## Creation
 
-- [HTML / CSS / JS 講義](https://hcj-execrise.onrender.com)：ライブ例とクイズ付き、中英二か国語のWeb基礎インタラクティブ講義。
-- [Vue 3 実践講義](https://vue-execrise.onrender.com)：Composition API、Pinia から Nuxt 3 の SSR まで、練習問題と面接対策付き。
-- [RabbitMQ 実践講義](https://rabbitmq-lbrf.onrender.com)：Spring AMQP を中心に、ルーティング、信頼性、DLX リトライ、クラスタ運用を解説。
-- [QR Scanner](https://qr-scanner.clarkliu.com)：ブラウザで直接 QR コードを読み取れるツール。
-- [Bilibili Detector](https://bilibili-detector.clarkliu.com)：Bilibili 動画の検出ツール。
-- [Siren Music Downloader](https://siren-music-downloader.clarkliu.com)：『Monster Siren Records』全アルバムのジャケットと楽曲を閲覧・ダウンロード。
-- [Stock Investgator](https://stock-investgator.clarkliu.com)：五層の判断フレームワークで外資の動向を追う台湾株ダッシュボード。
+<div class="creation-grid not-prose">
+  <a class="creation-card" href="https://hcj-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/hcj-handout.webp" alt="HTML / CSS / JS 講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">HTML / CSS / JS 講義</span>
+    <span class="creation-desc">ライブ例とクイズ付き、中英二か国語のWeb基礎講義。</span>
+  </a>
+  <a class="creation-card" href="https://vue-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/vue3-handout.webp" alt="Vue 3 実践講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Vue 3 実践講義</span>
+    <span class="creation-desc">Composition API から Nuxt 3 SSR まで、練習問題付き。</span>
+  </a>
+  <a class="creation-card" href="https://rabbitmq-lbrf.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/rabbitmq-handout.webp" alt="RabbitMQ 実践講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">RabbitMQ 実践講義</span>
+    <span class="creation-desc">Spring AMQP でルーティング、DLX、クラスタを解説。</span>
+  </a>
+  <a class="creation-card" href="https://qr-scanner.clarkliu.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/qr-scanner.webp" alt="QR Scanner" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">QR Scanner</span>
+    <span class="creation-desc">ブラウザで QR コードを読み取れるツール。</span>
+  </a>
+  <a class="creation-card" href="https://bilibili-detector.clarkliu.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/bilibili-detector.webp" alt="Bilibili Detector" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Bilibili Detector</span>
+    <span class="creation-desc">Bilibili 動画の検出ツール。</span>
+  </a>
+  <a class="creation-card" href="https://siren-music-downloader.clarkliu.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/siren-music-downloader.webp" alt="Siren Music Downloader" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Siren Music Downloader</span>
+    <span class="creation-desc">Monster Siren 全アルバムの楽曲とジャケットを入手。</span>
+  </a>
+  <a class="creation-card" href="https://stock-investgator.clarkliu.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/stock-investgator.webp" alt="Stock Investgator" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Stock Investgator</span>
+    <span class="creation-desc">五層の枠組みで外資の動向を追う台湾株ダッシュボード。</span>
+  </a>
+</div>
 
 Facebook: https://www.facebook.com/profile.php?id=100089820994977
 Medium: https://medium.com/@ziegler7359
