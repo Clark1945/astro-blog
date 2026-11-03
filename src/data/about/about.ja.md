@@ -12,6 +12,16 @@ title: "私について"
 
 あなたにとっての理想の生活って何ですか？？良かったら教えてください。
 
+## Creation
+
+- [HTML / CSS / JS 講義](https://hcj-execrise.onrender.com)：ライブ例とクイズ付き、中英二か国語のWeb基礎インタラクティブ講義。
+- [Vue 3 実践講義](https://vue-execrise.onrender.com)：Composition API、Pinia から Nuxt 3 の SSR まで、練習問題と面接対策付き。
+- [RabbitMQ 実践講義](https://rabbitmq-lbrf.onrender.com)：Spring AMQP を中心に、ルーティング、信頼性、DLX リトライ、クラスタ運用を解説。
+- [QR Scanner](https://qr-scanner.clarkliu.com)：ブラウザで直接 QR コードを読み取れるツール。
+- [Bilibili Detector](https://bilibili-detector.clarkliu.com)：Bilibili 動画の検出ツール。
+- [Siren Music Downloader](https://siren-music-downloader.clarkliu.com)：『Monster Siren Records』全アルバムのジャケットと楽曲を閲覧・ダウンロード。
+- [Stock Investgator](https://stock-investgator.clarkliu.com)：五層の判断フレームワークで外資の動向を追う台湾株ダッシュボード。
+
 Facebook: https://www.facebook.com/profile.php?id=100089820994977
 Medium: https://medium.com/@ziegler7359
 Youtube: https://www.youtube.com/@ashenNumberFour
