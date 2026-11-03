@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.0](https://github.com/Clark1945/astro-blog/compare/v1.5.0...v1.6.0) (2026-11-03)
+
+
+### Features
+
+* **about:** 加入 Creation 作品截圖 ([7c8e6a1](https://github.com/Clark1945/astro-blog/commit/7c8e6a15a6e03bca02b458a11a8e403903eb02ab))
+* **about:** 在 Creation 區塊新增 Twitter 匯流排 ([33d4431](https://github.com/Clark1945/astro-blog/commit/33d44319f6a02c72fabb7a021945a8d76a083a47))
+* **about:** 在 Creation 區塊新增 Twitter 匯流排 ([be7a1d6](https://github.com/Clark1945/astro-blog/commit/be7a1d6fdb069e1514776e479958e3a2160cb5f1))
+* **about:** 將 Creation 區塊改為上圖下文的作品卡片 ([0a7ddd8](https://github.com/Clark1945/astro-blog/commit/0a7ddd840019702ab8de6bf555832703815f4953))
+* **about:** 將 Creation 區塊改為上圖下文的作品卡片 ([14b6ff9](https://github.com/Clark1945/astro-blog/commit/14b6ff9dd669f94f2b118408c8da715fdaddb128))
+* **about:** 更新賽壬唱片下載器截圖為登入後畫面 ([9f986aa](https://github.com/Clark1945/astro-blog/commit/9f986aa2d0930e206686d0c1e140cfd36472da88))
+
 ## [1.5.0](https://github.com/Clark1945/astro-blog/compare/v1.4.0...v1.5.0) (2026-10-13)
 
 
