@@ -53,6 +53,11 @@ title: "關於"
     <span class="creation-title">Twitter 匯流排</span>
     <span class="creation-desc">將官方推特圖片整理成相簿，附追蹤組與圖片壓縮。</span>
   </a>
+  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/database-study-notes.webp" alt="資料庫學習筆記" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">資料庫學習筆記</span>
+    <span class="creation-desc">用電商模擬資料練習 PostgreSQL、Redis 等九種資料庫，附面試題。</span>
+  </a>
 </div>
 
 Facebook: https://www.facebook.com/profile.php?id=100089820994977

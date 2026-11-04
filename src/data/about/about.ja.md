@@ -55,6 +55,11 @@ title: "私について"
     <span class="creation-title">Twitter Hub</span>
     <span class="creation-desc">公式 X アカウントの画像をアルバムに整理するツール。</span>
   </a>
+  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/database-study-notes.webp" alt="データベース学習ノート" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">データベース学習ノート</span>
+    <span class="creation-desc">EC の模擬データで九種類の DB を学ぶ面接対策ノート。</span>
+  </a>
 </div>
 
 Facebook: https://www.facebook.com/profile.php?id=100089820994977
