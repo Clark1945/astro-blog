@@ -30,6 +30,11 @@ What's your ideal life? perhaps can you share with me.
     <span class="creation-title">RabbitMQ Handout</span>
     <span class="creation-desc">RabbitMQ with Spring AMQP: routing, DLX, clusters.</span>
   </a>
+  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/database-study-notes.webp" alt="Database Study Notes" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Database Study Notes</span>
+    <span class="creation-desc">Interview prep for nine databases, with mock data.</span>
+  </a>
   <a class="creation-card" href="https://qr-scanner.clarkliu.com" target="_blank" rel="noopener noreferrer">
     <img src="/assets/creations/qr-scanner.webp" alt="QR Scanner" width="800" height="500" loading="lazy" decoding="async" />
     <span class="creation-title">QR Scanner</span>
@@ -55,10 +60,10 @@ What's your ideal life? perhaps can you share with me.
     <span class="creation-title">Twitter Hub</span>
     <span class="creation-desc">Collects official X/Twitter art into albums.</span>
   </a>
-  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/database-study-notes.webp" alt="Database Study Notes" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">Database Study Notes</span>
-    <span class="creation-desc">Interview prep for nine databases, with mock data.</span>
+  <a class="creation-card" href="https://media-converter.clarkliu.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/media-converter.webp" alt="Media Forge" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Media Forge</span>
+    <span class="creation-desc">Trim, convert and subtitle media locally.</span>
   </a>
 </div>
 

@@ -30,6 +30,11 @@ title: "私について"
     <span class="creation-title">RabbitMQ 実践講義</span>
     <span class="creation-desc">Spring AMQP でルーティング、DLX、クラスタを解説。</span>
   </a>
+  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/database-study-notes.webp" alt="データベース学習ノート" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">データベース学習ノート</span>
+    <span class="creation-desc">EC の模擬データで九種類の DB を学ぶ面接対策ノート。</span>
+  </a>
   <a class="creation-card" href="https://qr-scanner.clarkliu.com" target="_blank" rel="noopener noreferrer">
     <img src="/assets/creations/qr-scanner.webp" alt="QR Scanner" width="800" height="500" loading="lazy" decoding="async" />
     <span class="creation-title">QR Scanner</span>
@@ -55,10 +60,10 @@ title: "私について"
     <span class="creation-title">Twitter Hub</span>
     <span class="creation-desc">公式 X アカウントの画像をアルバムに整理するツール。</span>
   </a>
-  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/database-study-notes.webp" alt="データベース学習ノート" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">データベース学習ノート</span>
-    <span class="creation-desc">EC の模擬データで九種類の DB を学ぶ面接対策ノート。</span>
+  <a class="creation-card" href="https://media-converter.clarkliu.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/media-converter.webp" alt="Media Forge" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Media Forge</span>
+    <span class="creation-desc">ffmpeg でローカルに切り出し・変換・字幕付けできるツール。</span>
   </a>
 </div>
 
