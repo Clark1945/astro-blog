@@ -67,7 +67,23 @@ title: "私について"
   </a>
 </div>
 
-Facebook: https://www.facebook.com/profile.php?id=100089820994977
-Medium: https://medium.com/@ziegler7359
-Youtube: https://www.youtube.com/@ashenNumberFour
-Linkedin: https://www.linkedin.com/in/clark-liu-b48740253
+## リンク
+
+<div class="social-links not-prose">
+  <a class="social-link" href="https://www.facebook.com/profile.php?id=100089820994977" target="_blank" rel="noopener noreferrer">
+    <span class="social-name">Facebook</span>
+    <span class="social-handle">Clark Liu</span>
+  </a>
+  <a class="social-link" href="https://medium.com/@ziegler7359" target="_blank" rel="noopener noreferrer">
+    <span class="social-name">Medium</span>
+    <span class="social-handle">@ziegler7359</span>
+  </a>
+  <a class="social-link" href="https://www.youtube.com/@ashenNumberFour" target="_blank" rel="noopener noreferrer">
+    <span class="social-name">YouTube</span>
+    <span class="social-handle">@ashenNumberFour</span>
+  </a>
+  <a class="social-link" href="https://www.linkedin.com/in/clark-liu-b48740253" target="_blank" rel="noopener noreferrer">
+    <span class="social-name">LinkedIn</span>
+    <span class="social-handle">clark-liu</span>
+  </a>
+</div>
