@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/Clark1945/astro-blog/compare/v1.6.0...v1.7.0) (2026-11-07)
+
+
+### Features
+
+* **about:** 社群連結改為按鈕排版 ([131d40a](https://github.com/Clark1945/astro-blog/commit/131d40ae7acb787c287add21098747be8061e2a4))
+
 ## [1.6.0](https://github.com/Clark1945/astro-blog/compare/v1.5.0...v1.6.0) (2026-11-03)
 
 
