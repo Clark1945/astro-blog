@@ -75,6 +75,44 @@ const title = `${pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)} | ${sit
   #about .creation-card:hover .creation-title {
     color: var(--accent);
   }
+  /* 社群連結：一個平台一顆按鈕 */
+  #about .social-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 0.75rem;
+    margin: 1.25rem 0 2rem;
+  }
+  #about .social-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: 0.75rem 0.875rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    color: var(--foreground);
+    text-decoration: none;
+    transition:
+      transform 0.15s ease,
+      border-color 0.15s ease;
+  }
+  #about .social-link:hover,
+  #about .social-link:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  #about .social-name {
+    font-weight: 600;
+  }
+  #about .social-link:hover .social-name {
+    color: var(--accent);
+  }
+  #about .social-handle {
+    overflow: hidden;
+    font-size: 0.8125rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.7;
+  }
   #about .creation-desc {
     padding: 0 0.875rem 0.875rem;
     font-size: 0.875rem;
