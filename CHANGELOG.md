@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.1](https://github.com/Clark1945/astro-blog/compare/v1.8.0...v1.8.1) (2026-11-08)
+
+
+### Bug Fixes
+
+* **blog:** 英日文版「Software Engineer & AI & 價值」對齊中文原意 ([3e5706a](https://github.com/Clark1945/astro-blog/commit/3e5706ac007f9a0b3339839a107b07c74fd55a96))
+* **blog:** 英日文版「Software Engineer & AI & 價值」對齊中文原意 ([70df1ca](https://github.com/Clark1945/astro-blog/commit/70df1ca36d5d8c39f35e24d638679a61ed03cc4e))
+
 ## [1.8.0](https://github.com/Clark1945/astro-blog/compare/v1.7.0...v1.8.0) (2026-11-08)
 
 
