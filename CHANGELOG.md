@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/Clark1945/astro-blog/compare/v1.7.0...v1.8.0) (2026-11-08)
+
+
+### Features
+
+* **blog:** 新增「Software Engineer & AI & 價值」中英日三語版本 ([2fc43dd](https://github.com/Clark1945/astro-blog/commit/2fc43ddfbeaaf527901830a11c969def81dbc492))
+
 ## [1.7.0](https://github.com/Clark1945/astro-blog/compare/v1.6.0...v1.7.0) (2026-11-07)
 
 
