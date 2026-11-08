@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/Clark1945/astro-blog/compare/v1.8.1...v1.9.0) (2026-11-08)
+
+
+### Features
+
+* **blog:** 新增「前端快速一次走通」並補上 20 題面試選擇題 ([8b518a1](https://github.com/Clark1945/astro-blog/commit/8b518a1c26dbd7266e41f72d9e83e1fd50ccbb02))
+* **blog:** 新增「前端快速一次走通」並補上 20 題面試選擇題 ([ce65d5f](https://github.com/Clark1945/astro-blog/commit/ce65d5f81a4a907bafcf2be6677026ce00067d40))
+
 ## [1.8.1](https://github.com/Clark1945/astro-blog/compare/v1.8.0...v1.8.1) (2026-11-08)
 
 
