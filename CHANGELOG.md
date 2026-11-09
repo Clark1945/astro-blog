@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.10.0](https://github.com/Clark1945/astro-blog/compare/v1.9.0...v1.10.0) (2026-11-09)
+
+
+### Features
+
+* **blog:** 新增「前端快速一次走通(2)」 ([6ecd96d](https://github.com/Clark1945/astro-blog/commit/6ecd96d1cd3bddc597a19e682fef0179f87fdcc6))
+* **blog:** 新增「前端快速一次走通」英日文版本 ([e8baf88](https://github.com/Clark1945/astro-blog/commit/e8baf88c4eae952d7334f444a00dceaac02c12a3))
+
 ## [1.9.0](https://github.com/Clark1945/astro-blog/compare/v1.8.1...v1.9.0) (2026-11-08)
 
 
