@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/Clark1945/astro-blog/compare/v1.10.0...v1.11.0) (2026-11-11)
+
+
+### Features
+
+* **about:** 在 Creation 區塊新增 Claude on AWS 工作坊講義 ([64d8607](https://github.com/Clark1945/astro-blog/commit/64d8607ca0df67ecb355e501c757d24790de77dc))
+
 ## [1.10.0](https://github.com/Clark1945/astro-blog/compare/v1.9.0...v1.10.0) (2026-11-09)
 
 
