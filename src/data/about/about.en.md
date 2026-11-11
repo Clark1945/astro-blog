@@ -65,6 +65,11 @@ What's your ideal life? perhaps can you share with me.
     <span class="creation-title">Media Forge</span>
     <span class="creation-desc">Trim, convert and subtitle media locally.</span>
   </a>
+  <a class="creation-card" href="https://claude-code-tutorial-1y3j.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/claude-aws-workshop.webp" alt="Claude on AWS Workshop Handout" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Claude on AWS Workshop Handout</span>
+    <span class="creation-desc">Traditional Chinese version of the official AWS workshop on Claude, with 13 module groups.</span>
+  </a>
 </div>
 
 ## Find Me

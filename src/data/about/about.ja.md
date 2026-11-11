@@ -65,6 +65,11 @@ title: "私について"
     <span class="creation-title">Media Forge</span>
     <span class="creation-desc">ffmpeg でローカルに切り出し・変換・字幕付けできるツール。</span>
   </a>
+  <a class="creation-card" href="https://claude-code-tutorial-1y3j.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/claude-aws-workshop.webp" alt="Claude on AWS ワークショップ講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Claude on AWS ワークショップ講義</span>
+    <span class="creation-desc">AWS 公式ワークショップの繁体字中国語版。Claude Code や Agent SDK など 13 の章をカバー。</span>
+  </a>
 </div>
 
 ## リンク

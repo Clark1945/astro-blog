@@ -63,6 +63,11 @@ title: "關於"
     <span class="creation-title">影音工坊 Media Forge</span>
     <span class="creation-desc">在本機用 ffmpeg 擷取、轉檔、上字幕的影音工具。</span>
   </a>
+  <a class="creation-card" href="https://claude-code-tutorial-1y3j.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/claude-aws-workshop.webp" alt="Claude on AWS 工作坊講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Claude on AWS 工作坊講義</span>
+    <span class="creation-desc">AWS 官方工作坊的繁體中文版，涵蓋 Claude Code、Agent SDK 與 AgentCore 等 13 個章節群。</span>
+  </a>
 </div>
 
 ## 在這裡找到我
