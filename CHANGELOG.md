@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/Clark1945/astro-blog/compare/v1.11.0...v1.12.0) (2026-11-24)
+
+
+### Features
+
+* **about:** 新增 Go 學習筆記，並將講義類獨立成 Creation 講義區塊 ([241cc23](https://github.com/Clark1945/astro-blog/commit/241cc23829257e3dbfbadcc738964a70e6743d48))
+
 ## [1.11.0](https://github.com/Clark1945/astro-blog/compare/v1.10.0...v1.11.0) (2026-11-11)
 
 
