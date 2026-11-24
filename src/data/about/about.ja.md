@@ -15,26 +15,6 @@ title: "私について"
 ## Creation
 
 <div class="creation-grid not-prose">
-  <a class="creation-card" href="https://hcj-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/hcj-handout.webp" alt="HTML / CSS / JS 講義" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">HTML / CSS / JS 講義</span>
-    <span class="creation-desc">ライブ例とクイズ付き、中英二か国語のWeb基礎講義。</span>
-  </a>
-  <a class="creation-card" href="https://vue-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/vue3-handout.webp" alt="Vue 3 実践講義" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">Vue 3 実践講義</span>
-    <span class="creation-desc">Composition API から Nuxt 3 SSR まで、練習問題付き。</span>
-  </a>
-  <a class="creation-card" href="https://rabbitmq-lbrf.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/rabbitmq-handout.webp" alt="RabbitMQ 実践講義" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">RabbitMQ 実践講義</span>
-    <span class="creation-desc">Spring AMQP でルーティング、DLX、クラスタを解説。</span>
-  </a>
-  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/database-study-notes.webp" alt="データベース学習ノート" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">データベース学習ノート</span>
-    <span class="creation-desc">EC の模擬データで九種類の DB を学ぶ面接対策ノート。</span>
-  </a>
   <a class="creation-card" href="https://qr-scanner.clarkliu.com" target="_blank" rel="noopener noreferrer">
     <img src="/assets/creations/qr-scanner.webp" alt="QR Scanner" width="800" height="500" loading="lazy" decoding="async" />
     <span class="creation-title">QR Scanner</span>
@@ -65,10 +45,40 @@ title: "私について"
     <span class="creation-title">Media Forge</span>
     <span class="creation-desc">ffmpeg でローカルに切り出し・変換・字幕付けできるツール。</span>
   </a>
+</div>
+
+## Creation 講義
+
+<div class="creation-grid not-prose">
+  <a class="creation-card" href="https://hcj-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/hcj-handout.webp" alt="HTML / CSS / JS 講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">HTML / CSS / JS 講義</span>
+    <span class="creation-desc">ライブ例とクイズ付き、中英二か国語のWeb基礎講義。</span>
+  </a>
+  <a class="creation-card" href="https://vue-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/vue3-handout.webp" alt="Vue 3 実践講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Vue 3 実践講義</span>
+    <span class="creation-desc">Composition API から Nuxt 3 SSR まで、練習問題付き。</span>
+  </a>
+  <a class="creation-card" href="https://rabbitmq-lbrf.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/rabbitmq-handout.webp" alt="RabbitMQ 実践講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">RabbitMQ 実践講義</span>
+    <span class="creation-desc">Spring AMQP でルーティング、DLX、クラスタを解説。</span>
+  </a>
+  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/database-study-notes.webp" alt="データベース学習ノート" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">データベース学習ノート</span>
+    <span class="creation-desc">EC の模擬データで九種類の DB を学ぶ面接対策ノート。</span>
+  </a>
   <a class="creation-card" href="https://claude-code-tutorial-1y3j.onrender.com/" target="_blank" rel="noopener noreferrer">
     <img src="/assets/creations/claude-aws-workshop.webp" alt="Claude on AWS ワークショップ講義" width="800" height="500" loading="lazy" decoding="async" />
     <span class="creation-title">Claude on AWS ワークショップ講義</span>
     <span class="creation-desc">AWS 公式ワークショップの繁体字中国語版。Claude Code や Agent SDK など 13 の章をカバー。</span>
+  </a>
+  <a class="creation-card" href="https://go-execrise.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/go-study-notes.webp" alt="Go 学習ノート" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Go 学習ノート</span>
+    <span class="creation-desc">Java バックエンドの視点でまとめた Go ノート。5 段階の要点、短いコード、つまずきやすい点つき。</span>
   </a>
 </div>
 

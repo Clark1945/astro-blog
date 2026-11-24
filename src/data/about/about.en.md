@@ -15,26 +15,6 @@ What's your ideal life? perhaps can you share with me.
 ## Creation
 
 <div class="creation-grid not-prose">
-  <a class="creation-card" href="https://hcj-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/hcj-handout.webp" alt="HTML / CSS / JS Handout" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">HTML / CSS / JS Handout</span>
-    <span class="creation-desc">Bilingual web basics with live demos and quizzes.</span>
-  </a>
-  <a class="creation-card" href="https://vue-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/vue3-handout.webp" alt="Vue 3 Handout" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">Vue 3 Handout</span>
-    <span class="creation-desc">Vue 3 from Composition API to Nuxt 3 SSR.</span>
-  </a>
-  <a class="creation-card" href="https://rabbitmq-lbrf.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/rabbitmq-handout.webp" alt="RabbitMQ Handout" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">RabbitMQ Handout</span>
-    <span class="creation-desc">RabbitMQ with Spring AMQP: routing, DLX, clusters.</span>
-  </a>
-  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/database-study-notes.webp" alt="Database Study Notes" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">Database Study Notes</span>
-    <span class="creation-desc">Interview prep for nine databases, with mock data.</span>
-  </a>
   <a class="creation-card" href="https://qr-scanner.clarkliu.com" target="_blank" rel="noopener noreferrer">
     <img src="/assets/creations/qr-scanner.webp" alt="QR Scanner" width="800" height="500" loading="lazy" decoding="async" />
     <span class="creation-title">QR Scanner</span>
@@ -65,10 +45,40 @@ What's your ideal life? perhaps can you share with me.
     <span class="creation-title">Media Forge</span>
     <span class="creation-desc">Trim, convert and subtitle media locally.</span>
   </a>
+</div>
+
+## Creation Handouts
+
+<div class="creation-grid not-prose">
+  <a class="creation-card" href="https://hcj-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/hcj-handout.webp" alt="HTML / CSS / JS Handout" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">HTML / CSS / JS Handout</span>
+    <span class="creation-desc">Bilingual web basics with live demos and quizzes.</span>
+  </a>
+  <a class="creation-card" href="https://vue-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/vue3-handout.webp" alt="Vue 3 Handout" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Vue 3 Handout</span>
+    <span class="creation-desc">Vue 3 from Composition API to Nuxt 3 SSR.</span>
+  </a>
+  <a class="creation-card" href="https://rabbitmq-lbrf.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/rabbitmq-handout.webp" alt="RabbitMQ Handout" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">RabbitMQ Handout</span>
+    <span class="creation-desc">RabbitMQ with Spring AMQP: routing, DLX, clusters.</span>
+  </a>
+  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/database-study-notes.webp" alt="Database Study Notes" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Database Study Notes</span>
+    <span class="creation-desc">Interview prep for nine databases, with mock data.</span>
+  </a>
   <a class="creation-card" href="https://claude-code-tutorial-1y3j.onrender.com/" target="_blank" rel="noopener noreferrer">
     <img src="/assets/creations/claude-aws-workshop.webp" alt="Claude on AWS Workshop Handout" width="800" height="500" loading="lazy" decoding="async" />
     <span class="creation-title">Claude on AWS Workshop Handout</span>
     <span class="creation-desc">Traditional Chinese version of the official AWS workshop on Claude, with 13 module groups.</span>
+  </a>
+  <a class="creation-card" href="https://go-execrise.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/go-study-notes.webp" alt="Go Study Notes" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Go Study Notes</span>
+    <span class="creation-desc">Go notes from a Java backend view: five stages with key points, short snippets and pitfalls.</span>
   </a>
 </div>
 

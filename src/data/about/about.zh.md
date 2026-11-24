@@ -13,26 +13,6 @@ title: "關於"
 ## Creation
 
 <div class="creation-grid not-prose">
-  <a class="creation-card" href="https://hcj-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/hcj-handout.webp" alt="HTML / CSS / JS 互動講義" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">HTML / CSS / JS 互動講義</span>
-    <span class="creation-desc">中英雙語網頁基礎講義，附即時範例與小測驗。</span>
-  </a>
-  <a class="creation-card" href="https://vue-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/vue3-handout.webp" alt="Vue 3 實戰講義" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">Vue 3 實戰講義</span>
-    <span class="creation-desc">從 Composition API 到 Nuxt 3 SSR，附練習與面試題。</span>
-  </a>
-  <a class="creation-card" href="https://rabbitmq-lbrf.onrender.com" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/rabbitmq-handout.webp" alt="RabbitMQ 實戰講義" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">RabbitMQ 實戰講義</span>
-    <span class="creation-desc">以 Spring AMQP 為主，涵蓋路由、可靠性、DLX 與叢集。</span>
-  </a>
-  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/creations/database-study-notes.webp" alt="資料庫學習筆記" width="800" height="500" loading="lazy" decoding="async" />
-    <span class="creation-title">資料庫學習筆記</span>
-    <span class="creation-desc">用電商模擬資料練習 PostgreSQL、Redis 等九種資料庫，附面試題。</span>
-  </a>
   <a class="creation-card" href="https://qr-scanner.clarkliu.com" target="_blank" rel="noopener noreferrer">
     <img src="/assets/creations/qr-scanner.webp" alt="QR Scanner" width="800" height="500" loading="lazy" decoding="async" />
     <span class="creation-title">QR Scanner</span>
@@ -63,10 +43,40 @@ title: "關於"
     <span class="creation-title">影音工坊 Media Forge</span>
     <span class="creation-desc">在本機用 ffmpeg 擷取、轉檔、上字幕的影音工具。</span>
   </a>
+</div>
+
+## Creation 講義
+
+<div class="creation-grid not-prose">
+  <a class="creation-card" href="https://hcj-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/hcj-handout.webp" alt="HTML / CSS / JS 互動講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">HTML / CSS / JS 互動講義</span>
+    <span class="creation-desc">中英雙語網頁基礎講義，附即時範例與小測驗。</span>
+  </a>
+  <a class="creation-card" href="https://vue-execrise.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/vue3-handout.webp" alt="Vue 3 實戰講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Vue 3 實戰講義</span>
+    <span class="creation-desc">從 Composition API 到 Nuxt 3 SSR，附練習與面試題。</span>
+  </a>
+  <a class="creation-card" href="https://rabbitmq-lbrf.onrender.com" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/rabbitmq-handout.webp" alt="RabbitMQ 實戰講義" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">RabbitMQ 實戰講義</span>
+    <span class="creation-desc">以 Spring AMQP 為主，涵蓋路由、可靠性、DLX 與叢集。</span>
+  </a>
+  <a class="creation-card" href="https://static-web-xi20.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/database-study-notes.webp" alt="資料庫學習筆記" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">資料庫學習筆記</span>
+    <span class="creation-desc">用電商模擬資料練習 PostgreSQL、Redis 等九種資料庫，附面試題。</span>
+  </a>
   <a class="creation-card" href="https://claude-code-tutorial-1y3j.onrender.com/" target="_blank" rel="noopener noreferrer">
     <img src="/assets/creations/claude-aws-workshop.webp" alt="Claude on AWS 工作坊講義" width="800" height="500" loading="lazy" decoding="async" />
     <span class="creation-title">Claude on AWS 工作坊講義</span>
     <span class="creation-desc">AWS 官方工作坊的繁體中文版，涵蓋 Claude Code、Agent SDK 與 AgentCore 等 13 個章節群。</span>
+  </a>
+  <a class="creation-card" href="https://go-execrise.onrender.com/" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/creations/go-study-notes.webp" alt="Go 學習筆記" width="800" height="500" loading="lazy" decoding="async" />
+    <span class="creation-title">Go 學習筆記</span>
+    <span class="creation-desc">以 Java 後端角度整理 Go 五個階段的重點、短程式碼與易錯處。</span>
   </a>
 </div>
 
